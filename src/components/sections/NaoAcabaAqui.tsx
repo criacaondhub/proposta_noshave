@@ -16,7 +16,7 @@ export function NaoAcabaAqui() {
           photo={NAO_ACABA.photo}
           graded={false}
           edges={['right']}
-          className="absolute inset-x-0 top-0 h-[55svh] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:inset-y-0 md:right-auto md:h-full md:w-[58%] md:[mask-image:none]"
+          className="absolute inset-x-0 top-0 h-[55svh] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:inset-y-0 md:right-auto md:aspect-[4/5] md:h-full md:w-auto md:max-w-[58%] md:[mask-image:none]"
           imgClassName="object-[50%_18%] md:object-[50%_30%]"
         />
       }

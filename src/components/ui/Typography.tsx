@@ -31,17 +31,21 @@ interface HeadlineProps {
   as?: 'h1' | 'h2'
   size?: keyof typeof HEADLINE_SIZES
   tone?: keyof typeof HEADLINE_TONES
+  /** as partes seguem na mesma linha (quebram só se não couberem) */
+  inline?: boolean
   className?: string
 }
 
-export function Headline({ lines, as: Tag = 'h2', size = 'default', tone = 'gradient', className }: HeadlineProps) {
+export function Headline({ lines, as: Tag = 'h2', size = 'default', tone = 'gradient', inline = false, className }: HeadlineProps) {
   const [first, ...rest] = lines
+  const part = inline ? 'inline' : 'block'
   return (
     <Tag className={cn('font-display text-balance text-ink uppercase', HEADLINE_SIZES[size], className)}>
-      <span className="block">{first}</span>
+      <span className={part}>{first}</span>
       {rest.map((line) => (
         // span interno: o degradê acompanha a largura do texto, não a da linha inteira
-        <span key={line} className="block">
+        <span key={line} className={part}>
+          {inline && ' '}
           <span className={HEADLINE_TONES[tone]}>{line}</span>
         </span>
       ))}
@@ -67,6 +71,9 @@ interface SectionHeadingProps {
   divider?: boolean
   size?: HeadlineProps['size']
   tone?: HeadlineProps['tone']
+  inline?: boolean
+  /** small = subtítulo no tamanho lead */
+  subheadSize?: 'default' | 'small'
   align?: 'center' | 'left'
   className?: string
 }
@@ -78,6 +85,8 @@ export function SectionHeading({
   divider = false,
   size = 'default',
   tone = 'gradient',
+  inline = false,
+  subheadSize = 'default',
   align = 'center',
   className,
 }: SectionHeadingProps) {
@@ -90,7 +99,7 @@ export function SectionHeading({
         </Reveal>
       )}
       <Reveal order={1}>
-        <Headline lines={title} size={size} tone={tone} />
+        <Headline lines={title} size={size} tone={tone} inline={inline} />
       </Reveal>
       {divider && (
         <Reveal order={2} className={cn('flex w-full', center && 'justify-center')}>
@@ -99,9 +108,15 @@ export function SectionHeading({
       )}
       {subhead && (
         <Reveal order={3}>
-          <p className="nse-sub">
-            <RichText text={subhead} />
-          </p>
+          {subheadSize === 'small' ? (
+            <p className="nse-lead">
+              <RichText text={subhead} strongClassName="text-blue-400" />
+            </p>
+          ) : (
+            <p className="nse-sub">
+              <RichText text={subhead} />
+            </p>
+          )}
         </Reveal>
       )}
     </div>

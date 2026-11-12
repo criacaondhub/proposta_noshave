@@ -19,7 +19,7 @@ export function BonusCirurgia() {
 
   return (
     <Slide orbs="wide" className="items-center text-center">
-      <SectionHeading eyebrow={eyebrow} title={title} subhead={subhead} />
+      <SectionHeading eyebrow={eyebrow} title={title} subhead={subhead} inline subheadSize="small" />
 
       <ul className="mt-8 grid w-full max-w-[62rem] grid-cols-2 gap-3 md:mt-12 md:grid-cols-4 md:gap-5">
         {includes.map((item, i) => {

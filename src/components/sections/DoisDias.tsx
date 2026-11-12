@@ -3,7 +3,7 @@ import { Card, StepBadge } from '@/components/ui/Card'
 import { Reveal } from '@/components/ui/Reveal'
 import { RichText } from '@/components/ui/RichText'
 import { Slide } from '@/components/ui/Slide'
-import { HighlightBand, SectionHeading } from '@/components/ui/Typography'
+import { GlowDivider, SectionHeading } from '@/components/ui/Typography'
 
 // 08 · T6 — Conteúdo dos 2 dias: ①──②──③, cards e faixa de rodapé
 export function DoisDias() {
@@ -40,12 +40,12 @@ export function DoisDias() {
         ))}
       </ol>
 
-      <Reveal step={cards.length + 1} className="mt-6 md:mt-8">
-        <HighlightBand>
-          <p className="nse-lead">
-            <RichText text={footer} strongClassName="text-blue-400" />
-          </p>
-        </HighlightBand>
+      {/* rodapé: fio de luz + destaque do jantar, centralizado */}
+      <Reveal step={cards.length + 1} className="mt-8 flex flex-col items-center gap-4 text-center md:mt-10">
+        <GlowDivider className="max-w-[28rem]" />
+        <p className="nse-lead">
+          <RichText text={footer} strongClassName="text-blue-400" />
+        </p>
       </Reveal>
     </Slide>
   )

@@ -37,8 +37,6 @@ export const SITE = {
   progressLabel: 'Progresso da apresentação',
   prevLabel: 'Voltar',
   nextLabel: 'Avançar',
-  hintDesktop: 'avance',
-  hintMobile: 'deslize para avançar',
   photoPending: 'Foto pendente',
 }
 
