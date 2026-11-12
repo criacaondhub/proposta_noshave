@@ -12,16 +12,17 @@ interface CtaButtonProps {
 }
 
 export function CtaButton({ children, href = CONFIG.CTA_URL, pulse = false, size = 'default', className }: CtaButtonProps) {
-  // Enquanto o destino estiver pendente, o botão aparece mas não navega.
-  const ready = !isPending(href)
+  const classes = cn('nse-cta', size === 'sm' && 'sm', pulse && 'animate-glow-pulse motion-reduce:animate-none', className)
+  // Enquanto o destino estiver pendente, aparece como botão sem ação (não um link sem destino).
+  if (isPending(href)) {
+    return (
+      <button type="button" aria-disabled className={classes}>
+        {children}
+      </button>
+    )
+  }
   return (
-    <a
-      href={ready ? href : undefined}
-      target={ready ? '_blank' : undefined}
-      rel={ready ? 'noopener noreferrer' : undefined}
-      aria-disabled={ready ? undefined : true}
-      className={cn('nse-cta', size === 'sm' && 'sm', pulse && 'animate-glow-pulse motion-reduce:animate-none', className)}
-    >
+    <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
       {children}
     </a>
   )

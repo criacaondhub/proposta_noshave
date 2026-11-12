@@ -1,17 +1,8 @@
 export const CONFIG = {
-  // ⚠️ PENDENTE — preencher antes do deploy
-  WHATSAPP_URL: '⚠️ PENDENTE',
-  WHATSAPP_NUMBER: '⚠️ PENDENTE',
-  CONTACT_EMAIL: '⚠️ PENDENTE',
-  CONTACT_PHONE: '⚠️ PENDENTE',
-  DOMAIN: '⚠️ PENDENTE',
-
   // ⚠️ PENDENTE — destino dos CTAs (WhatsApp do comercial, formulário de aplicação ou checkout)
   CTA_URL: '⚠️ PENDENTE',
   // vídeo de depoimento (aceita .mp4 em assets/, YouTube ou Vimeo)
   VIDEO_URL: 'https://www.youtube.com/shorts/T3MbFFraUoI',
-
-  COMPANY_NAME: 'Dr. Rafael Ultramar',
 } as const
 
 export const isPending = (value: string) => value.startsWith('⚠️')

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Bloquear rotas com dados pessoais (LGPD)
+Disallow: /obrigado
+Disallow: /confirmacao
+Disallow: /*?nome=*
+Disallow: /*?email=*
+Disallow: /*?telefone=*
+Disallow: /*?mensagem=*
+Disallow: /*utm_*
+
+# ⚠️ PENDENTE — descomentar com o domínio definido (e publicar o sitemap.xml)
+# Sitemap: https://DOMINIO/sitemap.xml

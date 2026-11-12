@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Inter:ital,opsz,wght@0,14..32,200;0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,700;1,14..32,500;1,14..32,700&display=swap');
+/* Fontes (Montserrat + Inter) carregadas por <link> no index.html, sem bloquear a cadeia do CSS */
 @import "tailwindcss";
 @source "./**/*.{ts,tsx}";
 
@@ -236,16 +236,6 @@
     display: none;
   }
 
-  /* HighlightBand — faixa atrás do subtítulo, sangrando até a borda direita da tela */
-  .nse-band {
-    --band-pad: clamp(1.25rem, 2.5vw, 3rem);
-    position: relative;
-    padding: clamp(1rem, 2.6svh, 2rem) var(--band-pad);
-    margin-inline-start: calc(-1 * var(--band-pad));
-    margin-inline-end: calc(-1 * (var(--spacing-slide-x) + max(0px, (100vw - var(--container-page)) / 2)));
-    background: linear-gradient(90deg, rgb(12 17 33 / 0) 0%, rgb(8 35 82 / 0.85) 40%, var(--color-blue-800) 100%);
-  }
-
   /* Textos do sistema */
   /* Subtítulo e lead — mesmo padrão do texto corrido (Inter ExtraLight), só maiores */
   .nse-sub {
@@ -419,9 +409,5 @@
   }
   .nse-photo.no-fade::after {
     display: none;
-  }
-  .nse-keyhole {
-    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 160'><circle cx='50' cy='42' r='42'/><path d='M22 64 L8 160 H92 L78 64 Z'/></svg>") center / contain no-repeat;
-    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 160'><circle cx='50' cy='42' r='42'/><path d='M22 64 L8 160 H92 L78 64 Z'/></svg>") center / contain no-repeat;
   }
 }

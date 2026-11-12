@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import { Reveal } from './Reveal'
 import { RichText } from './RichText'
@@ -56,11 +55,6 @@ export function Headline({ lines, as: Tag = 'h2', size = 'default', tone = 'grad
 /* GlowDivider — linha de luz com núcleo ciano; "left" é a variante lateral */
 export function GlowDivider({ variant = 'center', className }: { variant?: 'center' | 'left'; className?: string }) {
   return <div aria-hidden className={cn('nse-divider', variant === 'left' && 'left', className)} />
-}
-
-/* HighlightBand — faixa que satura para blue-800 sangrando até a borda direita */
-export function HighlightBand({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn('nse-band', className)}>{children}</div>
 }
 
 /* Cabeçalho padrão dos slides: selo → headline → luz → subtítulo, em cascata */

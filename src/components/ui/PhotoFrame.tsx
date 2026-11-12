@@ -18,7 +18,6 @@ interface PhotoFrameProps {
   /** vinheta + fade para bg-000 na base */
   fade?: boolean
   edges?: (keyof typeof EDGE_FADES)[]
-  keyhole?: boolean
   eager?: boolean
   /** classes de object-position para enquadrar o sujeito (ex.: 'object-[50%_20%]') */
   imgClassName?: string
@@ -30,14 +29,13 @@ export function PhotoFrame({
   graded = true,
   fade = true,
   edges = [],
-  keyhole = false,
   eager = false,
   imgClassName,
 }: PhotoFrameProps) {
   const [missing, setMissing] = useState(false)
 
   return (
-    <div className={cn('nse-photo', graded && 'graded', !fade && 'no-fade', keyhole && 'nse-keyhole', className)}>
+    <div className={cn('nse-photo', graded && 'graded', !fade && 'no-fade', className)}>
       {missing ? (
         // Placeholder até o arquivo existir em public/assets/ com este nome
         <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-[radial-gradient(circle_at_50%_40%,var(--color-surface-100),var(--color-bg-000)_75%)] p-4 text-center">

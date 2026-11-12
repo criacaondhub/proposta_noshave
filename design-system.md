@@ -18,7 +18,7 @@ Todos os tokens vivem em `@theme` no `src/index.css`. As cores padrão do Tailwi
 | `surface-200` | `#153086` | `bg-surface-200` | Topo do gradiente do selo e hover dos cards. |
 | `stroke-blue` | `#2A4184` | `border-stroke-blue` | Contorno 1px de selo e cards. |
 | `blue-950` | `#01136D` | `to-blue-950` | Fim do gradiente do CTA. |
-| `blue-800` | `#002384` | `to-blue-800` | Fim saturado da HighlightBand. |
+| `blue-800` | `#002384` | `from-blue-800` | Início da barra de progresso. |
 | `blue-600` | `#0061E4` | `text-blue-600` | Royal: 2ª linha do headline, início do CTA, risco do preço "DE". **Só texto ≥ 24px** (3,4:1). |
 | `blue-500` | `#058CFF` | `text-blue-500` | Azure: headline em destaque e "No Shave Experience" no corpo (5,6:1). |
 | `blue-400` | `#4695FF` | `text-blue-400` | Destaque em subtítulos e leads (6,3:1). |
@@ -58,7 +58,7 @@ Use a luz com escassez: no máximo um divisor por bloco e um CTA iluminado por t
 | Texto | **Inter** (Google Fonts, 400/500/700 + 700 itálico) | `font-sans` (padrão do body) | Selo, corpo, CTA, legendas |
 
 - Mesmas famílias da landing do produto (experience.rafaelultramar.com.br). Lá os títulos usam Montserrat **Light (300)**; aqui seguem os pesos do DS (600/700), com o 300 já carregado caso se queira o visual da landing.
-- O import das duas fica no topo do `src/index.css` com `display=swap`.
+- As duas são carregadas por `<link>` no `index.html` (com `preconnect` e `display=swap`), fora da cadeia do CSS para não atrasar a primeira pintura.
 
 ### Escala
 
@@ -155,7 +155,6 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 - Sem container retangular aparente e sem `border-radius` nas fotos de composição.
 - `.graded`: `grayscale(1) contrast(1.15) brightness(.9)` + camada `blue-600 → blue-950` em `mix-blend-mode: color`. O ideal é a foto já vir tratada.
 - Fade para `bg-000` na base (vinheta radial) e, nas fotos laterais, no lado que encosta no texto.
-- `.nse-keyhole`: máscara SVG em fechadura (disponível, sem uso no momento).
 - Fotos dos cards (slide 03) não levam fade.
 
 **Vídeo (slide 09):** `CONFIG.VIDEO_URL` = https://www.youtube.com/shorts/T3MbFFraUoI — vídeo vertical (9:16) à esquerda e título em 3 linhas à direita (no mobile, título em cima). Embed youtube-nocookie com autoplay ao clicar. Aceita também `.mp4` em `public/assets/`, vídeos horizontais (sem `vertical`) e Vimeo não listado.
@@ -170,9 +169,8 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 | `Eyebrow` | `.nse-eyebrow` | Selo acima do headline: gradiente `surface-200 → surface-100`, borda `stroke-blue`, `radius-lg`. `_texto_` = itálico na virada. |
 | `Headline` | utilitários | Display em CAIXA ALTA, 2 cores. Variações `default` e `compact`; tom `royal` ou `azure`. |
 | `GlowDivider` | `.nse-divider` (`.left`) | Linha de luz de 2px com núcleo ciano. |
-| `HighlightBand` | `.nse-band` | Gradiente que satura para `blue-800` e sangra até a borda direita da tela. (hoje só no rodapé do slide 08) |
 | `RichText` | `.nse-brand` | `**negrito**`, `_itálico_` e "No Shave Experience" automático em 700 + `blue-500`. |
-| `PhotoFrame` | `.nse-photo` (`.graded`, `.nse-keyhole`) | Foto tratada com fade e placeholder automático. |
+| `PhotoFrame` | `.nse-photo` (`.graded`, `.no-fade`) | Foto tratada com fade e placeholder automático. |
 | `CountUp` | — | Números de valor sobem ao entrar (formato pt-BR, algarismos tabulares). |
 | `Card` | utilitários | `surface-100` + `stroke-blue` + `radius-md`; hover → `surface-200` + halo leve. Variações `muted` (borda `line`) e `featured` (halo). |
 
@@ -204,7 +202,7 @@ Mesmo sistema de fundos da proposta FUE Ultramar, recolorido:
 | Grade de células iluminadas | `CellGrid` (canvas estático) com vinheta radial | Slide 04 (4 médicos) |
 | Orbes de luz | `GlowOrb` (blur 120px, `royal`/`azure`), presets em `orbPresets.ts` | Todos, variando a posição |
 
-- O WebGL só existe no slide atual (animado) e nos vizinhos (quadro parado): no máximo 3 contextos.
+- O WebGL só existe no slide atual (animado) e nos vizinhos (quadro parado): no máximo 3 contextos. Ele começa depois da primeira pintura (página ociosa) e entra com fade de 1,2s.
 - `prefers-reduced-motion`: a cortina fica parada e o logo aparece pronto.
 
 ## 9. Movimento

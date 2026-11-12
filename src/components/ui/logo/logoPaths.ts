@@ -1,4 +1,5 @@
-// Gerado a partir de public/assets/logo-no-shave-azul.webp (vetorização do canal alfa, isolinha 50%).
+// Gerado a partir do logo da landing (experience.rafaelultramar.com.br/assets/logo-no-shave-azul.webp),
+// por vetorização do canal alfa (isolinha 50%).
 // Se chegar o SVG oficial do logo, basta substituir os caminhos abaixo.
 
 export const LOGO_VIEWBOX = { width: 768, height: 146 } as const

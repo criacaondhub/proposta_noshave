@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 
 /*
@@ -123,12 +123,27 @@ export function GradientBlinds({
   const animate = playing && !reduceMotion
   const [color0, color1 = color0] = colors
 
+  // O WebGL só começa depois da primeira pintura (página ociosa), para não disputar o carregamento
+  const [idle, setIdle] = useState(false)
+  useEffect(() => {
+    if (typeof window.requestIdleCallback === 'function') {
+      const handle = window.requestIdleCallback(() => setIdle(true), { timeout: 1500 })
+      return () => window.cancelIdleCallback(handle)
+    }
+    const timer = window.setTimeout(() => setIdle(true), 600)
+    return () => window.clearTimeout(timer)
+  }, [])
+
   useEffect(() => {
     const host = hostRef.current
-    if (!host || !mounted) return
+    if (!host || !mounted || !idle) return
 
     const canvas = document.createElement('canvas')
-    canvas.style.cssText = 'display:block;width:100%;height:100%'
+    // entra com fade em vez de surgir de uma vez
+    canvas.style.cssText = 'display:block;width:100%;height:100%;opacity:0;transition:opacity 1.2s ease-out'
+    requestAnimationFrame(() => {
+      canvas.style.opacity = '1'
+    })
     const gl = canvas.getContext('webgl', { alpha: true, antialias: false, powerPreference: 'low-power' })
     if (!gl) return
     host.appendChild(canvas)
@@ -204,6 +219,7 @@ export function GradientBlinds({
     }
   }, [
     mounted,
+    idle,
     animate,
     color0,
     color1,
