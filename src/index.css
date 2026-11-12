@@ -54,6 +54,7 @@
 
   --text-body: clamp(1rem, min(1.3vw, 2.3svh), 1.25rem);
   --text-body--line-height: 1.55;
+  --text-body--font-weight: 200;
 
   --text-eyebrow: clamp(0.8125rem, 1.1vw, 1.0625rem);
   --text-eyebrow--line-height: 1.2;
@@ -269,14 +270,16 @@
   .nse-lead strong {
     font-weight: 600;
   }
+  /* Texto corrido — Inter ExtraLight (padrão dos cards do slide 07) */
   .nse-body {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
+    font-weight: var(--text-body--font-weight);
     color: var(--color-ink);
   }
   .nse-body strong {
-    font-weight: 700;
+    font-weight: 500;
   }
 
   /* Card — vidro escuro com borda de luz, fio ciano no topo e sombra profunda */

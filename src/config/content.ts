@@ -305,5 +305,6 @@ export const FECHAMENTO = {
     { day: '19', month: 'Fev', text: 'Hands on, palestras, networking e um jantar exclusivo com o Dr. Rafael Ultramar.' },
   ],
   cta: 'Quero entrar para o No Shave Experience',
-  photo: { src: 'assets/dr-rafael-datas.webp', alt: 'Dr. Rafael Ultramar apontando para as datas da turma' } satisfies Photo,
+  // foto já tratada em azul (1080×1350); o ponto de luz fica na parte de baixo
+  photo: { src: 'assets/Slide-17.webp', alt: 'Pinças cirúrgicas manipulando unidades foliculares sob a luz do foco cirúrgico' } satisfies Photo,
 }

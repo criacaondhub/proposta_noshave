@@ -37,7 +37,7 @@ export function Ambiente() {
                   <h3 className="font-display text-lead font-normal uppercase">{card.title}</h3>
                 </div>
                 <span aria-hidden className="h-px w-full bg-linear-to-r from-glow-300/50 to-transparent" />
-                <p className="nse-body font-extralight">
+                <p className="nse-body">
                   <RichText text={card.text} />
                 </p>
               </Card>

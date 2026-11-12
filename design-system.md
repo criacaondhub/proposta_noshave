@@ -71,7 +71,7 @@ Tipografia igual à da landing experience.rafaelultramar.com.br: títulos em **M
 | `text-headline-compact` | `clamp(1.75rem, min(3.4vw, 5.6svh), 3.25rem)` · 28 → 52px | 1.15 | -0.025em | 300 | ALTA |
 | `text-subhead` | `clamp(1.5rem, min(2.8vw, 4.6svh), 2.5rem)` · 24 → 40px | 1.15 | -0.015em | 300 (destaque 600 + `blue-400`) | normal |
 | `text-lead` | `clamp(1.125rem, min(1.6vw, 2.8svh), 1.5rem)` · 18 → 24px | 1.35 | -0.01em | 300 (títulos de card: 400, caixa alta) | normal |
-| `text-body` (Inter) | `clamp(1rem, min(1.3vw, 2.3svh), 1.25rem)` · 16 → 20px | 1.55 | — | 400 (marca 700 + `blue-500`) | normal |
+| `text-body` (Inter) | `clamp(1rem, min(1.3vw, 2.3svh), 1.25rem)` · 16 → 20px | 1.55 | — | **200 ExtraLight** (destaque 500; marca 700 + `blue-500`) | normal |
 | `text-eyebrow` (Inter) | `clamp(0.8125rem, 1.1vw, 1.0625rem)` · 13 → 17px | 1.2 | 0.01em | 700, itálico na virada | ALTA |
 | `text-cta` (Montserrat) | `clamp(0.9375rem, 1.2vw, 1.125rem)` · 15 → 18px | 1.2 | -0.025em | 300 | ALTA |
 | `text-caption` (Inter) | 14px | 1.4 | — | 400 | normal |
@@ -148,7 +148,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 | `resultado-01.webp` · `-02` · `-03` | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto) | 4:3 · 1200×900 |
 | `depoimento-capa.webp` | 09 Depoimentos | Capa do player | 16:9 · 1600×900 |
 | `Slide-10.webp` ✅ | 10 Transição | Metade esquerda, full-bleed (já tratada em azul, sem `.graded`); mobile no topo com máscara | 1080×1350 |
-| `dr-rafael-datas.webp` | 17 Fechamento | Metade esquerda, full-bleed; mobile no topo | 1600×1600 |
+| `Slide-17.webp` ✅ | 17 Fechamento | Metade esquerda na proporção original (já tratada em azul, sem `.graded` e sem fade inferior); mobile no topo com máscara | 1080×1350 |
 | `og-image.jpg` | Compartilhamento | Meta `og:image` | 1200×630 |
 
 **Tratamento (`PhotoFrame`):**

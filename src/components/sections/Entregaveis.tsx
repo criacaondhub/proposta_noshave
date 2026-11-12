@@ -29,9 +29,9 @@ export function Entregaveis() {
                 <span className="nse-body">{item.label}</span>
                 <span aria-hidden className="hidden flex-1 border-b border-dotted border-ink-muted/40 md:block" />
                 {item.value === null ? (
-                  <em className="nse-body font-bold text-blue-400">{item.valueLabel}</em>
+                  <em className="nse-body font-medium text-blue-400">{item.valueLabel}</em>
                 ) : (
-                  <span className="nse-body font-bold tabular-nums">{formatCurrency(item.value)}</span>
+                  <span className="nse-body font-medium tabular-nums">{formatCurrency(item.value)}</span>
                 )}
               </Reveal>
             ))}

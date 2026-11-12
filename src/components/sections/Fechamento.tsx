@@ -18,8 +18,11 @@ export function Fechamento() {
       backdrop={
         <PhotoFrame
           photo={photo}
+          graded={false}
+          fade={false}
           edges={['right']}
-          className="absolute inset-x-0 top-0 h-[40svh] md:inset-y-0 md:right-auto md:h-full md:w-1/2"
+          className="absolute inset-x-0 top-0 h-[40svh] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:inset-y-0 md:right-auto md:aspect-[4/5] md:h-full md:w-auto md:max-w-1/2 md:[mask-image:none]"
+          imgClassName="object-[50%_72%] md:object-center"
         />
       }
       className="justify-end pt-[34svh] md:items-end md:justify-center md:pt-slide-y"
@@ -37,7 +40,7 @@ export function Fechamento() {
         <ul className="flex flex-col gap-3">
           {dates.map((date, i) => (
             <Reveal as="li" key={date.day} step={1} order={i}>
-              <div className="flex items-stretch overflow-hidden rounded-md border border-stroke-blue bg-surface-100">
+              <div className="nse-card flex items-stretch overflow-hidden">
                 <p className="nse-body flex-1 self-center px-4 py-3 md:px-5 md:py-4">{date.text}</p>
                 <p className="flex w-20 shrink-0 flex-col items-center justify-center bg-linear-to-br from-blue-600 to-blue-950 py-3 font-display md:w-24">
                   <span className="text-headline-compact">{date.day}</span>

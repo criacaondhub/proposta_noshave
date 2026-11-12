@@ -30,7 +30,7 @@ export function DoisDias() {
               <ul className="mt-4 flex flex-col gap-3">
                 {card.items.map((item) => (
                   <li key={item.text} className="nse-body">
-                    {item.label && <em className="font-bold text-blue-400">{item.label}: </em>}
+                    {item.label && <em className="font-medium text-blue-400">{item.label}: </em>}
                     {item.text}
                   </li>
                 ))}
