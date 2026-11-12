@@ -146,7 +146,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 | Arquivo | Slide | Posição | Proporção sugerida |
 |---|---|---|---|
 | `resultado-01.webp` · `-02` · `-03` | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto) | 4:3 · 1200×900 |
-| `depoimento-capa.webp` | 09 Depoimentos | Capa do player | 16:9 · 1600×900 |
+| `depoimento-capa.webp` ✅ | 09 Depoimentos | Capa do player: frame inicial do vídeo, cores originais (sem grade azul nem vinheta) | 642×390 (ideal 1280×720) |
 | `Slide-10.webp` ✅ | 10 Transição | Metade esquerda, full-bleed (já tratada em azul, sem `.graded`); mobile no topo com máscara | 1080×1350 |
 | `Slide-17.webp` ✅ | 17 Fechamento | Metade esquerda na proporção original (já tratada em azul, sem `.graded` e sem fade inferior); mobile no topo com máscara | 1080×1350 |
 | `og-image.jpg` | Compartilhamento | Meta `og:image` | 1200×630 |
@@ -158,7 +158,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 - `.nse-keyhole`: máscara SVG em fechadura (disponível, sem uso no momento).
 - Fotos dos cards (slide 03) não levam fade.
 
-**Vídeo (slide 09):** `CONFIG.VIDEO_URL` aceita `.mp4` (em `public/assets/`), YouTube ou Vimeo não listado.
+**Vídeo (slide 09):** `CONFIG.VIDEO_URL` = https://www.youtube.com/watch?v=mpeZolJDZJ4 (embed youtube-nocookie com autoplay ao clicar). Aceita também `.mp4` em `public/assets/` ou Vimeo não listado.
 
 ---
 

@@ -37,7 +37,8 @@ export function VideoPlayer({ video, playLabel, pendingLabel }: VideoPlayerProps
         )
       ) : (
         <>
-          <PhotoFrame photo={video.poster} className="absolute inset-0" />
+          {/* capa com as cores originais do vídeo (sem grade azul nem vinheta) */}
+          <PhotoFrame photo={video.poster} graded={false} fade={false} className="absolute inset-0" />
           <button
             type="button"
             onClick={() => setPlaying(true)}

@@ -8,8 +8,8 @@ export const CONFIG = {
 
   // ⚠️ PENDENTE — destino dos CTAs (WhatsApp do comercial, formulário de aplicação ou checkout)
   CTA_URL: '⚠️ PENDENTE',
-  // ⚠️ PENDENTE — vídeo de depoimento: 'assets/depoimento.mp4', link do YouTube ou do Vimeo não listado
-  VIDEO_URL: '⚠️ PENDENTE',
+  // vídeo de depoimento (aceita .mp4 em assets/, YouTube ou Vimeo)
+  VIDEO_URL: 'https://www.youtube.com/watch?v=mpeZolJDZJ4',
 
   COMPANY_NAME: 'Dr. Rafael Ultramar',
 } as const
@@ -196,7 +196,8 @@ export const DEPOIMENTOS = {
     {
       src: CONFIG.VIDEO_URL,
       title: 'Depoimento de aluno da Metodologia Ultramar',
-      poster: { src: 'assets/depoimento-capa.webp', alt: 'Capa do vídeo de depoimento' } satisfies Photo,
+      // capa: frame inicial do vídeo, nas cores originais
+      poster: { src: 'assets/depoimento-capa.webp', alt: 'Aluno da Metodologia Ultramar dando seu depoimento' } satisfies Photo,
     },
   ],
   playLabel: 'Assistir ao depoimento',
