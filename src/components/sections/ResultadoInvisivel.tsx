@@ -12,7 +12,7 @@ export function ResultadoInvisivel() {
 
   return (
     <Slide orbs="wide">
-      <SectionHeading eyebrow={eyebrow} title={title} />
+      <SectionHeading eyebrow={eyebrow} title={title} inline />
 
       <ul className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:items-start md:gap-6">
         {cards.map((card, i) => (
