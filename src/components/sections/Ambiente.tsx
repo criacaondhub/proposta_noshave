@@ -25,7 +25,7 @@ export function Ambiente() {
         </p>
       </Reveal>
 
-      <ul className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
+      <ul className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:items-start md:gap-6">
         {cards.map((card, i) => {
           const Icon = ICONS[card.icon]
           return (
