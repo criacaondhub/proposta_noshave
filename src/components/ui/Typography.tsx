@@ -12,7 +12,7 @@ export function Eyebrow({ text, className }: { text: string; className?: string 
   )
 }
 
-/* Headline — CAIXA ALTA em duas cores: 1ª linha ink, demais em royal (blue-600) ou azure (blue-500) */
+/* Headline — CAIXA ALTA em duas cores: 1ª linha ink (light), demais em negrito com degradê azul */
 const HEADLINE_SIZES = {
   display: 'text-display-xl',
   default: 'text-headline',
@@ -20,6 +20,7 @@ const HEADLINE_SIZES = {
 } as const
 
 const HEADLINE_TONES = {
+  gradient: 'nse-gradient-text',
   royal: 'text-blue-600',
   azure: 'text-blue-500',
   ink: 'text-ink',
@@ -33,14 +34,15 @@ interface HeadlineProps {
   className?: string
 }
 
-export function Headline({ lines, as: Tag = 'h2', size = 'default', tone = 'azure', className }: HeadlineProps) {
+export function Headline({ lines, as: Tag = 'h2', size = 'default', tone = 'gradient', className }: HeadlineProps) {
   const [first, ...rest] = lines
   return (
     <Tag className={cn('font-display text-balance text-ink uppercase', HEADLINE_SIZES[size], className)}>
       <span className="block">{first}</span>
       {rest.map((line) => (
-        <span key={line} className={cn('block', HEADLINE_TONES[tone])}>
-          {line}
+        // span interno: o degradê acompanha a largura do texto, não a da linha inteira
+        <span key={line} className="block">
+          <span className={HEADLINE_TONES[tone]}>{line}</span>
         </span>
       ))}
     </Tag>
@@ -75,7 +77,7 @@ export function SectionHeading({
   subhead,
   divider = false,
   size = 'default',
-  tone = 'azure',
+  tone = 'gradient',
   align = 'center',
   className,
 }: SectionHeadingProps) {

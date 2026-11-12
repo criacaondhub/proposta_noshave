@@ -10,7 +10,7 @@ export function NaoVaiPagar() {
     <Slide tone="deep" ambient="beam" orbs="center" className="items-center text-center">
       <Reveal order={0}>
         <h2 className="max-w-[18ch] font-display text-headline text-balance">
-          <RichText text={NAO_VAI_PAGAR.phrase} strongClassName="font-semibold text-blue-400" />
+          <RichText text={NAO_VAI_PAGAR.phrase} strongClassName="nse-gradient-text" />
         </h2>
       </Reveal>
       <Reveal order={2} className="mt-10 flex w-full justify-center md:mt-14">

@@ -43,7 +43,7 @@ export function DeckArrows() {
         {atStart && (
           <motion.p
             aria-hidden
-            className="pointer-events-none fixed inset-x-0 bottom-5 z-30 flex flex-col items-center gap-1 text-caption text-ink-muted md:pointer-fine:hidden"
+            className="pointer-events-none fixed inset-x-0 bottom-6 z-30 flex flex-col items-center gap-1 text-caption text-ink-muted md:pointer-fine:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

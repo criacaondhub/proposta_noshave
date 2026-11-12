@@ -1,43 +1,45 @@
+import { TbBuildingHospital, TbLifebuoy, TbMicroscope, TbUsersGroup } from 'react-icons/tb'
 import { BONUS_CIRURGIA } from '@/config/content'
-import { PhotoFrame } from '@/components/ui/PhotoFrame'
+import { Card } from '@/components/ui/Card'
 import { Reveal } from '@/components/ui/Reveal'
 import { RichText } from '@/components/ui/RichText'
 import { Slide } from '@/components/ui/Slide'
-import { Eyebrow, GlowDivider, Headline, HighlightBand } from '@/components/ui/Typography'
+import { SectionHeading } from '@/components/ui/Typography'
 
-// 12 · T5 — Editorial com fechadura: foto recortada à esquerda, faixa sangrando à direita
+const ICONS = {
+  team: TbUsersGroup,
+  equipment: TbMicroscope,
+  structure: TbBuildingHospital,
+  support: TbLifebuoy,
+} as const
+
+// 12 · Bônus 02 — centralizado: o que a diária inclui em 4 cards de vidro
 export function BonusCirurgia() {
-  const { eyebrow, title, band, body, photo } = BONUS_CIRURGIA
+  const { eyebrow, title, subhead, includes, note } = BONUS_CIRURGIA
 
   return (
-    <Slide orbs="wide" className="md:grid md:grid-cols-12 md:items-center md:gap-gutter">
-      <Reveal order={0} className="mx-auto aspect-[100/160] h-[36svh] md:col-span-5 md:h-[72svh]">
-        <PhotoFrame photo={photo} keyhole className="h-full w-full" />
-      </Reveal>
+    <Slide orbs="wide" className="items-center text-center">
+      <SectionHeading eyebrow={eyebrow} title={title} subhead={subhead} />
 
-      <div className="mt-6 flex flex-col items-start gap-4 md:col-span-7 md:mt-0 md:gap-6">
-        <Reveal order={1}>
-          <Eyebrow text={eyebrow} />
-        </Reveal>
-        <Reveal order={2}>
-          <Headline lines={title} />
-        </Reveal>
-        <Reveal order={3} className="w-full">
-          <HighlightBand>
-            <p className="nse-sub max-w-[24ch]">
-              <RichText text={band} />
-            </p>
-          </HighlightBand>
-        </Reveal>
-        <Reveal order={4} className="w-full">
-          <GlowDivider variant="left" />
-        </Reveal>
-        <Reveal order={5}>
-          <p className="nse-body max-w-[34rem]">
-            <RichText text={body} />
-          </p>
-        </Reveal>
-      </div>
+      <ul className="mt-8 grid w-full max-w-[62rem] grid-cols-2 gap-3 md:mt-12 md:grid-cols-4 md:gap-5">
+        {includes.map((item, i) => {
+          const Icon = ICONS[item.icon]
+          return (
+            <Reveal as="li" key={item.icon} order={4 + i} className="flex">
+              <Card className="flex w-full flex-col items-center gap-3 px-2 py-6 md:gap-4 md:px-4 md:py-8">
+                <Icon aria-hidden className="size-8 text-blue-400 md:size-9" strokeWidth={1.5} />
+                <span className="font-display text-caption font-normal uppercase md:text-lead">{item.label}</span>
+              </Card>
+            </Reveal>
+          )
+        })}
+      </ul>
+
+      <Reveal order={8} className="mt-6 md:mt-8">
+        <p className="nse-body text-ink-muted">
+          <RichText text={note} strongClassName="text-ink" />
+        </p>
+      </Reveal>
     </Slide>
   )
 }

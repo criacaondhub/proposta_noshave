@@ -86,7 +86,7 @@ export function ArquiteturaMetodo() {
           return (
             <Reveal as="li" key={step.title} step={i + 1} className={cn('relative md:flex-1', STAIR_OFFSETS[i])}>
               <Card variant={top ? 'featured' : 'default'} className="md:pt-10">
-                <h3 className={cn('font-display text-lead font-normal uppercase', top && 'text-blue-500')}>{step.title}</h3>
+                <h3 className={cn('font-display text-lead font-normal uppercase', top && 'nse-gradient-text')}>{step.title}</h3>
                 <p className="nse-body mt-3">{step.text}</p>
               </Card>
               <span data-step-badge className="absolute top-0 -left-16 md:-top-6 md:left-[calc(50%-1.5rem)]">

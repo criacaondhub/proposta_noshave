@@ -32,7 +32,6 @@ export const SITE = {
   // nome lido por leitores de tela no logo (o desenho vetorial está em components/ui/logo)
   wordmark: 'No Shave Experience',
   deckLabel: 'Apresentação No Shave Experience',
-  homeLabel: 'voltar ao início',
   counterLabel: 'Slide',
   slideOf: 'de',
   progressLabel: 'Progresso da apresentação',
@@ -233,9 +232,14 @@ export const BONUS_CIRURGIA = {
   label: 'Bônus 02 · A cirurgia assistida',
   eyebrow: 'Bônus 02 · _extremamente exclusivo_',
   title: ['A cirurgia', 'assistida'],
-  band: 'Alugue uma diária da **Clínica Ultramar** para fazer sua cirurgia.',
-  body: 'Equipe, equipamentos, estrutura e suporte, acompanhado do **Dr. Rafael Ultramar**.',
-  photo: { src: 'assets/day-clinic.webp', alt: 'Ultramar Day Clinic vista pela fechadura' } satisfies Photo,
+  subhead: 'Alugue uma diária da **Clínica Ultramar** para fazer sua cirurgia.',
+  includes: [
+    { icon: 'team', label: 'Equipe' },
+    { icon: 'equipment', label: 'Equipamentos' },
+    { icon: 'structure', label: 'Estrutura' },
+    { icon: 'support', label: 'Suporte' },
+  ] as const,
+  note: 'Tudo acompanhado do **Dr. Rafael Ultramar**.',
 }
 
 // 13 · Recapitulando os entregáveis — T7

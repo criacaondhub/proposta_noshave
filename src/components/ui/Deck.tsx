@@ -3,7 +3,7 @@ import { SITE } from '@/config/content'
 import { DeckContext, SlideContext, type DeckApi } from '@/lib/deck'
 import { useMediaQuery } from '@/lib/useMediaQuery'
 import { DeckArrows } from './DeckArrows'
-import { DeckHeader } from './DeckHeader'
+import { DeckCounter } from './DeckCounter'
 import { DeckProgress } from './DeckProgress'
 
 export interface DeckSlide {
@@ -251,6 +251,7 @@ export function Deck({ slides }: { slides: DeckSlide[] }) {
   const api = useMemo<DeckApi>(
     () => ({
       current,
+      currentLabel: slides[current].label,
       total,
       stepMode,
       canPrev: current > 0 || (stepMode && revealed[current] > 0),
@@ -259,12 +260,11 @@ export function Deck({ slides }: { slides: DeckSlide[] }) {
       prev: () => navigate(-1),
       goTo,
     }),
-    [current, total, stepMode, revealed, steps, navigate, goTo],
+    [current, slides, total, stepMode, revealed, steps, navigate, goTo],
   )
 
   return (
     <DeckContext.Provider value={api}>
-      <DeckHeader />
       <main
         ref={trackRef}
         aria-label={SITE.deckLabel}
@@ -287,6 +287,7 @@ export function Deck({ slides }: { slides: DeckSlide[] }) {
         ))}
       </main>
       <DeckArrows />
+      <DeckCounter />
       <DeckProgress />
     </DeckContext.Provider>
   )

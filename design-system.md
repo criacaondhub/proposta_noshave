@@ -123,7 +123,8 @@ Valores tirados do CSS da proposta FUE Ultramar.
 
 - Cada slide ocupa `100vw × 100svh`. A trilha (`<main>`) tem `scroll-snap` em X no desktop e em Y no mobile.
 - No mobile o slide tem **altura mínima** de uma tela: se o conteúdo for maior, ele cresce e o snap respeita.
-- **Header fixo:** à esquerda o logo (`LogoMark`, some na capa porque o logo grande já está no centro); à direita o contador `03 / 17` (texto, `ink-muted` com o atual em `ink`).
+- **Sem header:** o logo não aparece no topo dos slides (só na capa).
+- **Contador:** barra de vidro fosco centralizada (`DeckCounter`) com `03 / 17` e o nome do slide atual; fica na base no desktop e no topo no mobile (onde o conteúdo rola).
 - **Progresso:** linha de luz na base da tela, crescendo da esquerda para a direita, com o núcleo ciano na ponta.
 - **Setas laterais:** só em telas ≥ 768px com mouse/trackpad. No slide 1 aparece a dica "avance".
 - **Fundo:** `bg-100` por padrão; slides com foto full-bleed e transições usam `bg-000`.
@@ -147,7 +148,6 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 | `resultado-01.webp` · `-02` · `-03` | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto) | 4:3 · 1200×900 |
 | `depoimento-capa.webp` | 09 Depoimentos | Capa do player | 16:9 · 1600×900 |
 | `cirurgia-equipe.webp` | 10 Transição | Metade esquerda, full-bleed; mobile no topo | 1600×1600 |
-| `day-clinic.webp` | 12 Bônus 02 | Recorte em fechadura (col 1–5) | 5:8 · 1000×1600 |
 | `dr-rafael-datas.webp` | 17 Fechamento | Metade esquerda, full-bleed; mobile no topo | 1600×1600 |
 | `og-image.jpg` | Compartilhamento | Meta `og:image` | 1200×630 |
 
@@ -155,7 +155,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 - Sem container retangular aparente e sem `border-radius` nas fotos de composição.
 - `.graded`: `grayscale(1) contrast(1.15) brightness(.9)` + camada `blue-600 → blue-950` em `mix-blend-mode: color`. O ideal é a foto já vir tratada.
 - Fade para `bg-000` na base (vinheta radial) e, nas fotos laterais, no lado que encosta no texto.
-- `.nse-keyhole`: máscara SVG em fechadura (círculo + trapézio, viewBox 100×160).
+- `.nse-keyhole`: máscara SVG em fechadura (disponível, sem uso no momento).
 - Fotos dos cards (slide 03) não levam fade.
 
 **Vídeo (slide 09):** `CONFIG.VIDEO_URL` aceita `.mp4` (em `public/assets/`), YouTube ou Vimeo não listado.
@@ -170,7 +170,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 | `Eyebrow` | `.nse-eyebrow` | Selo acima do headline: gradiente `surface-200 → surface-100`, borda `stroke-blue`, `radius-lg`. `_texto_` = itálico na virada. |
 | `Headline` | utilitários | Display em CAIXA ALTA, 2 cores. Variações `default` e `compact`; tom `royal` ou `azure`. |
 | `GlowDivider` | `.nse-divider` (`.left`) | Linha de luz de 2px com núcleo ciano. |
-| `HighlightBand` | `.nse-band` | Gradiente que satura para `blue-800` e sangra até a borda direita da tela. |
+| `HighlightBand` | `.nse-band` | Gradiente que satura para `blue-800` e sangra até a borda direita da tela. (hoje só no rodapé do slide 08) |
 | `RichText` | `.nse-brand` | `**negrito**`, `_itálico_` e "No Shave Experience" automático em 700 + `blue-500`. |
 | `PhotoFrame` | `.nse-photo` (`.graded`, `.nse-keyhole`) | Foto tratada com fade e placeholder automático. |
 | `CountUp` | — | Números de valor sobem ao entrar (formato pt-BR, algarismos tabulares). |

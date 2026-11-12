@@ -362,6 +362,17 @@
     box-shadow: none;
   }
 
+  /* Destaque dos títulos — negrito com degradê de azul (luz ciano → azure → royal) */
+  .nse-gradient-text {
+    font-weight: 700;
+    background-image: linear-gradient(90deg, var(--color-glow-100) 0%, var(--color-blue-500) 45%, var(--color-blue-600) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
   /* BrandMention — nome do produto dentro do corpo */
   .nse-brand {
     font-weight: 700;

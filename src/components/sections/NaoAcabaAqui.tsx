@@ -20,7 +20,7 @@ export function NaoAcabaAqui() {
       }
       className="justify-end pb-[16svh] md:items-end md:justify-center md:pb-slide-y"
     >
-      <Reveal order={0} className="md:w-[40%]">
+      <Reveal order={0} className="md:w-[46%]">
         <Headline lines={NAO_ACABA.title} />
       </Reveal>
     </Slide>
