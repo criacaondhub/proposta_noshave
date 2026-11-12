@@ -2,8 +2,6 @@ import { createContext, useContext } from 'react'
 
 export interface DeckApi {
   current: number
-  /** nome do slide atual (barra do contador) */
-  currentLabel: string
   total: number
   /** desktop com mouse/trackpad: "avançar" revela os itens do slide um a um */
   stepMode: boolean

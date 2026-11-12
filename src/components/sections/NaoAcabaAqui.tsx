@@ -14,8 +14,10 @@ export function NaoAcabaAqui() {
       backdrop={
         <PhotoFrame
           photo={NAO_ACABA.photo}
+          graded={false}
           edges={['right']}
-          className="absolute inset-x-0 top-0 h-[55svh] md:inset-y-0 md:right-auto md:h-full md:w-[58%]"
+          className="absolute inset-x-0 top-0 h-[55svh] [mask-image:linear-gradient(to_bottom,black_55%,transparent)] md:inset-y-0 md:right-auto md:h-full md:w-[58%] md:[mask-image:none]"
+          imgClassName="object-[50%_18%] md:object-[50%_30%]"
         />
       }
       className="justify-end pb-[16svh] md:items-end md:justify-center md:pb-slide-y"

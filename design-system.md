@@ -147,7 +147,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 |---|---|---|---|
 | `resultado-01.webp` · `-02` · `-03` | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto) | 4:3 · 1200×900 |
 | `depoimento-capa.webp` | 09 Depoimentos | Capa do player | 16:9 · 1600×900 |
-| `cirurgia-equipe.webp` | 10 Transição | Metade esquerda, full-bleed; mobile no topo | 1600×1600 |
+| `Slide-10.webp` ✅ | 10 Transição | Metade esquerda, full-bleed (já tratada em azul, sem `.graded`); mobile no topo com máscara | 1080×1350 |
 | `dr-rafael-datas.webp` | 17 Fechamento | Metade esquerda, full-bleed; mobile no topo | 1600×1600 |
 | `og-image.jpg` | Compartilhamento | Meta `og:image` | 1200×630 |
 

@@ -20,6 +20,8 @@ interface PhotoFrameProps {
   edges?: (keyof typeof EDGE_FADES)[]
   keyhole?: boolean
   eager?: boolean
+  /** classes de object-position para enquadrar o sujeito (ex.: 'object-[50%_20%]') */
+  imgClassName?: string
 }
 
 export function PhotoFrame({
@@ -30,6 +32,7 @@ export function PhotoFrame({
   edges = [],
   keyhole = false,
   eager = false,
+  imgClassName,
 }: PhotoFrameProps) {
   const [missing, setMissing] = useState(false)
 
@@ -49,6 +52,7 @@ export function PhotoFrame({
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
           onError={() => setMissing(true)}
+          className={imgClassName}
         />
       )}
       {edges.map((edge) => (

@@ -210,7 +210,8 @@ export const NAO_ACABA = {
   id: 'nao-acaba-aqui',
   label: 'Mas não acaba aqui',
   title: ['Mas não', 'acaba aqui…'],
-  photo: { src: 'assets/cirurgia-equipe.webp', alt: 'Equipe Ultramar em cirurgia' } satisfies Photo,
+  // foto já tratada em azul (1080×1350)
+  photo: { src: 'assets/Slide-10.webp', alt: 'Dr. Rafael Ultramar de perfil, iluminado em azul' } satisfies Photo,
 }
 
 // 11 · Bônus 01 — T2

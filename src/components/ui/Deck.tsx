@@ -251,7 +251,6 @@ export function Deck({ slides }: { slides: DeckSlide[] }) {
   const api = useMemo<DeckApi>(
     () => ({
       current,
-      currentLabel: slides[current].label,
       total,
       stepMode,
       canPrev: current > 0 || (stepMode && revealed[current] > 0),
@@ -260,7 +259,7 @@ export function Deck({ slides }: { slides: DeckSlide[] }) {
       prev: () => navigate(-1),
       goTo,
     }),
-    [current, slides, total, stepMode, revealed, steps, navigate, goTo],
+    [current, total, stepMode, revealed, steps, navigate, goTo],
   )
 
   return (
