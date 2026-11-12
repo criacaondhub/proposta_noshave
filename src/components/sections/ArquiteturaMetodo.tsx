@@ -47,7 +47,7 @@ function useBadgeCenters() {
 // 05 · T6 — As 3 etapas do método subindo como degraus
 export function ArquiteturaMetodo() {
   const { title, steps } = METODO
-  const { revealed } = useSlide()
+  const { revealed, stepMode } = useSlide()
   const { listRef, points } = useBadgeCenters()
 
   return (
@@ -74,7 +74,8 @@ export function ArquiteturaMetodo() {
                 stroke="var(--color-glow-300)"
                 strokeWidth={2}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: revealed >= i + 2 ? 1 : 0 }}
+                // aceso só o trecho que leva à etapa atual; os anteriores apagam junto com os degraus
+                animate={{ opacity: revealed < i + 2 ? 0 : stepMode && revealed > i + 2 ? 0.25 : 1 }}
                 transition={{ duration: 0.6 }}
               />
             )
@@ -83,15 +84,19 @@ export function ArquiteturaMetodo() {
 
         {steps.map((step, i) => {
           const top = i === steps.length - 1
+          // apresentando: a etapa já vista apaga para o próximo degrau ganhar destaque
+          const past = stepMode && revealed > i + 1
           return (
             <Reveal as="li" key={step.title} step={i + 1} className={cn('relative md:flex-1', STAIR_OFFSETS[i])}>
-              <Card variant={top ? 'featured' : 'default'} className="md:pt-10">
-                <h3 className={cn('font-display text-lead font-normal uppercase', top && 'nse-gradient-text')}>{step.title}</h3>
-                <p className="nse-body mt-3">{step.text}</p>
-              </Card>
-              <span data-step-badge className="absolute top-0 -left-16 md:-top-6 md:left-[calc(50%-1.5rem)]">
-                <StepBadge n={i + 1} highlight={top} />
-              </span>
+              <div className={cn('transition-opacity duration-700 ease-out-soft', past && 'opacity-30')}>
+                <Card variant={top ? 'featured' : 'default'} className="md:pt-10">
+                  <h3 className={cn('font-display text-lead font-normal uppercase', top && 'nse-gradient-text')}>{step.title}</h3>
+                  <p className="nse-body mt-3">{step.text}</p>
+                </Card>
+                <span data-step-badge className="absolute top-0 -left-16 md:-top-6 md:left-[calc(50%-1.5rem)]">
+                  <StepBadge n={i + 1} highlight={top} />
+                </span>
+              </div>
             </Reveal>
           )
         })}

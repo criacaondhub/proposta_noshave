@@ -31,13 +31,13 @@ export function Ambiente() {
           return (
             <Reveal as="li" key={card.icon} step={i + 1} className="flex">
               <Card className="flex w-full flex-col gap-3 md:gap-4">
-                {/* título com o ícone à direita */}
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="font-display text-lead font-normal uppercase">{card.title}</h3>
+                {/* ícone à esquerda do título */}
+                <div className="flex items-center gap-3">
                   <Icon aria-hidden className="size-7 shrink-0 text-blue-400 md:size-8" strokeWidth={1.5} />
+                  <h3 className="font-display text-lead font-normal uppercase">{card.title}</h3>
                 </div>
                 <span aria-hidden className="h-px w-full bg-linear-to-r from-glow-300/50 to-transparent" />
-                <p className="nse-body font-light">
+                <p className="nse-body font-extralight">
                   <RichText text={card.text} />
                 </p>
               </Card>
