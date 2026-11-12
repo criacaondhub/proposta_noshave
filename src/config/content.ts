@@ -100,7 +100,8 @@ export const TURMA = {
   label: 'Apenas 4 médicos por turma',
   eyebrow: 'Foco absoluto. _Proximidade total._',
   title: ['Apenas 4 médicos', 'por turma'],
-  body: 'Não estamos aqui para criar massa. Estamos aqui para **lapidar a elite**. Acesso irrestrito ao **Dr. Rafael Ultramar**.',
+  // \n = quebra de linha depois de "lapidar a elite."
+  body: 'Não estamos aqui para criar massa. Estamos aqui para **lapidar a elite**.\nAcesso irrestrito ao **Dr. Rafael Ultramar**.',
   seatLabel: 'Cadeira',
   seats: ['01', '02', '03', '04'],
 }
