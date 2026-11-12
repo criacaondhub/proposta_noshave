@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { TbPlayerPlayFilled } from 'react-icons/tb'
 import { isPending, type Photo } from '@/config/content'
-import { toEmbedUrl } from '@/lib/utils'
+import { cn, toEmbedUrl } from '@/lib/utils'
 import { PhotoFrame } from './PhotoFrame'
 
 export interface Video {
   src: string
   title: string
   poster: Photo
+  /** Shorts / vídeo em pé (9:16) */
+  vertical?: boolean
 }
 
 interface VideoPlayerProps {
@@ -22,7 +24,12 @@ export function VideoPlayer({ video, playLabel, pendingLabel }: VideoPlayerProps
   const embed = pending ? null : toEmbedUrl(video.src)
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-md border border-stroke-blue bg-bg-000 shadow-glow-cta">
+    <div
+      className={cn(
+        'relative w-full overflow-hidden rounded-md border border-stroke-blue bg-bg-000 shadow-glow-cta',
+        video.vertical ? 'aspect-[9/16]' : 'aspect-video',
+      )}
+    >
       {playing ? (
         embed ? (
           <iframe

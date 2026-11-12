@@ -6,16 +6,25 @@ import { Slide } from '@/components/ui/Slide'
 import { SectionHeading } from '@/components/ui/Typography'
 import { VideoPlayer } from '@/components/ui/VideoPlayer'
 
-// 09 · T2 com player — 16:9 centralizado; vira carrossel se houver mais de um vídeo
+// 09 · Depoimento em vídeo vertical (Shorts) à esquerda e título em 3 linhas à direita.
+// No mobile o título vem primeiro. Vira carrossel se houver mais de um vídeo.
 export function Depoimentos() {
   const { title, videos, playLabel, pendingLabel, bulletLabel } = DEPOIMENTOS
   const [active, setActive] = useState(0)
 
   return (
-    <Slide orbs="center" className="items-center">
-      <SectionHeading title={title} />
+    <Slide
+      orbs="center"
+      className="items-center md:grid md:grid-cols-[auto_auto] md:items-center md:justify-center md:gap-x-16 lg:gap-x-24"
+    >
+      <SectionHeading
+        title={title}
+        align="left"
+        className="order-1 items-center text-center md:order-2 md:items-start md:text-left"
+      />
 
-      <Reveal order={3} className="mt-8 w-[min(100%,56rem,calc((100svh_-_21rem)_*_16_/_9))] md:mt-10">
+      {/* altura guiada pela tela; a largura sai da proporção 9:16 */}
+      <Reveal order={3} className="order-2 mt-8 w-[min(72vw,20rem)] md:order-1 md:mt-0 md:w-[calc(min(72svh,44rem)*9/16)]">
         <VideoPlayer key={active} video={videos[active]} playLabel={playLabel} pendingLabel={pendingLabel} />
 
         {videos.length > 1 && (

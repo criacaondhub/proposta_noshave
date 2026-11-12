@@ -9,7 +9,7 @@ export const CONFIG = {
   // ⚠️ PENDENTE — destino dos CTAs (WhatsApp do comercial, formulário de aplicação ou checkout)
   CTA_URL: '⚠️ PENDENTE',
   // vídeo de depoimento (aceita .mp4 em assets/, YouTube ou Vimeo)
-  VIDEO_URL: 'https://www.youtube.com/watch?v=mpeZolJDZJ4',
+  VIDEO_URL: 'https://www.youtube.com/shorts/T3MbFFraUoI',
 
   COMPANY_NAME: 'Dr. Rafael Ultramar',
 } as const
@@ -191,13 +191,16 @@ export const IMERSAO = {
 export const DEPOIMENTOS = {
   id: 'depoimentos',
   label: 'Depoimentos',
-  title: ['O que os alunos da', 'metodologia Ultramar dizem'],
+  // 3 linhas, ao lado do vídeo vertical
+  title: ['O que os alunos da', 'metodologia', 'Ultramar dizem'],
   videos: [
     {
       src: CONFIG.VIDEO_URL,
       title: 'Depoimento de aluno da Metodologia Ultramar',
-      // capa: frame inicial do vídeo, nas cores originais
-      poster: { src: 'assets/depoimento-capa.webp', alt: 'Aluno da Metodologia Ultramar dando seu depoimento' } satisfies Photo,
+      // Shorts: vídeo vertical (9:16)
+      vertical: true,
+      // capa: frame inicial do vídeo (recorte vertical da miniatura do YouTube), nas cores originais
+      poster: { src: 'assets/depoimento-capa.webp', alt: 'Paciente com a linha frontal avaliada antes do transplante' } satisfies Photo,
     },
   ],
   playLabel: 'Assistir ao depoimento',
