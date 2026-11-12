@@ -11,7 +11,7 @@ export function DoisDias() {
 
   return (
     <Slide>
-      <SectionHeading title={title} size="compact" align="left" />
+      <SectionHeading title={title} size="compact" />
 
       <ol className="relative mt-8 grid gap-4 pl-16 md:mt-10 md:grid-cols-3 md:items-start md:gap-6 md:pl-0">
         {/* mobile: trilho de luz na lateral esquerda */}
