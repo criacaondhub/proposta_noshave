@@ -14,7 +14,7 @@ export function ResultadoInvisivel() {
     <Slide orbs="wide">
       <SectionHeading eyebrow={eyebrow} title={title} />
 
-      <ul className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
+      <ul className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:items-start md:gap-6">
         {cards.map((card, i) => (
           <Reveal as="li" key={card.text} step={i + 1} className="flex">
             <Card className="flex w-full items-center gap-4 p-2 md:flex-col md:items-stretch md:gap-0 md:p-2.5">

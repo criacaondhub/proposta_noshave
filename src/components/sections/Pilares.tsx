@@ -13,7 +13,7 @@ export function Pilares() {
     <Slide orbs="center">
       <SectionHeading title={title} />
 
-      <ul className="mt-8 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-6">
+      <ul className="mt-8 grid gap-4 md:mt-12 md:grid-cols-3 md:items-start md:gap-6">
         {pillars.map((pillar, i) => (
           <Reveal as="li" key={pillar.title} step={i + 1} className="flex">
             <Card className="flex w-full flex-col gap-3">

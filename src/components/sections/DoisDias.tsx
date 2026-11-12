@@ -13,7 +13,7 @@ export function DoisDias() {
     <Slide>
       <SectionHeading title={title} size="compact" align="left" />
 
-      <ol className="relative mt-8 grid gap-4 pl-16 md:mt-10 md:grid-cols-3 md:gap-6 md:pl-0">
+      <ol className="relative mt-8 grid gap-4 pl-16 md:mt-10 md:grid-cols-3 md:items-start md:gap-6 md:pl-0">
         {/* mobile: trilho de luz na lateral esquerda */}
         <span aria-hidden className="absolute top-6 bottom-6 left-6 w-0.5 -translate-x-1/2 bg-linear-to-b from-blue-600 to-glow-300 md:hidden" />
 
@@ -25,7 +25,7 @@ export function DoisDias() {
                 <span aria-hidden className="hidden h-0.5 flex-1 bg-linear-to-r from-glow-300 to-blue-600/0 md:-mr-6 md:block" />
               )}
             </div>
-            <Card className="flex-1">
+            <Card>
               <h3 className="font-display text-lead font-semibold uppercase">{card.title}</h3>
               <ul className="mt-4 flex flex-col gap-3">
                 {card.items.map((item) => (
