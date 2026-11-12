@@ -151,12 +151,13 @@ export const AMBIENTE = {
   title: ['Um ambiente projetado', 'para o topo'],
   body: 'Muito mais que técnica: você terá acesso a um **networking de altíssimo nível** com outros profissionais focados em crescimento agressivo.',
   cards: [
-    { icon: 'networking', text: 'Evento premium com networking selecionado a dedo.' },
+    { icon: 'networking', title: 'Networking de elite', text: 'Evento premium com networking selecionado a dedo.' },
     {
       icon: 'hospitality',
+      title: 'Hospitalidade premium',
       text: 'Hospitalidade de excelência, projetada para fomentar conexões estratégicas sem perder o foco nos negócios.',
     },
-    { icon: 'kit', text: 'Welcome Kit No Shave Experience exclusivo para a turma.' },
+    { icon: 'kit', title: 'Welcome Kit exclusivo', text: 'Welcome Kit No Shave Experience exclusivo para a turma.' },
   ] as const,
 }
 
