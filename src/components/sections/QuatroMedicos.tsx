@@ -11,7 +11,7 @@ export function QuatroMedicos() {
   const { eyebrow, title, body } = TURMA
 
   return (
-    <Slide ambient="grid" orbs="strong" className="items-center text-center">
+    <Slide ambient="grid" orbs="wide" className="items-center text-center">
       <SectionHeading eyebrow={eyebrow} title={title} divider />
       <Reveal order={4} className="mt-6">
         <p className="nse-body mx-auto max-w-[44rem]">
@@ -38,10 +38,19 @@ function Seats() {
             key={seat}
             style={delay}
             className={cn(
-              'relative flex aspect-[3/4] flex-col items-center justify-end overflow-hidden rounded-md border bg-surface-100 pb-3 transition-[border-color,box-shadow] duration-700 md:max-h-[24svh] md:pb-4',
-              inView ? 'border-blue-500/70 shadow-glow-cta' : 'border-stroke-blue',
+              'nse-card flex aspect-[3/4] flex-col items-center justify-end overflow-hidden pb-3 duration-700 md:max-h-[24svh] md:pb-4',
+              inView && 'shadow-glow-cta',
             )}
           >
+            {/* contorno aceso (opacidade anima com atraso; gradiente não anima) */}
+            <span
+              aria-hidden
+              style={delay}
+              className={cn(
+                'absolute inset-0 rounded-[inherit] border border-blue-500/70 transition-opacity duration-700',
+                inView ? 'opacity-100' : 'opacity-0',
+              )}
+            />
             <span
               aria-hidden
               style={delay}

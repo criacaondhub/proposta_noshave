@@ -275,6 +275,89 @@
     font-weight: 700;
   }
 
+  /* Card — vidro escuro com borda de luz, fio ciano no topo e sombra profunda */
+  .nse-card {
+    --card-ring: linear-gradient(180deg, rgb(70 149 255 / 0.5) 0%, rgb(42 65 132 / 0.28) 35%, rgb(42 65 132 / 0.08) 100%);
+    --card-flare: 0.5;
+    position: relative;
+    isolation: isolate;
+    border-radius: var(--radius-md);
+    background:
+      radial-gradient(120% 70% at 50% 0%, rgb(0 97 228 / 0.2), transparent 65%),
+      linear-gradient(180deg, rgb(21 48 134 / 0.32) 0%, rgb(17 32 93 / 0.18) 45%, rgb(2 3 10 / 0.5) 100%);
+    box-shadow:
+      0 30px 80px -24px rgb(0 0 0 / 0.7),
+      inset 0 1px 0 rgb(255 255 255 / 0.06);
+    -webkit-backdrop-filter: blur(18px) saturate(1.3);
+    backdrop-filter: blur(18px) saturate(1.3);
+    transition:
+      transform 0.45s var(--ease-out-soft),
+      box-shadow 0.45s var(--ease-out-soft);
+  }
+  /* borda em degradê (anel desenhado só na borda via máscara) */
+  .nse-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--card-ring);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  /* fio de luz no topo (assinatura do CTA) */
+  .nse-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 22%;
+    right: 22%;
+    z-index: 2;
+    height: 1px;
+    background: linear-gradient(90deg, rgb(104 248 255 / 0), var(--color-glow-100) 50%, rgb(104 248 255 / 0));
+    box-shadow: 0 0 14px 1px rgb(104 248 255 / 0.45);
+    opacity: var(--card-flare);
+    transition: opacity 0.45s var(--ease-out-soft);
+    pointer-events: none;
+  }
+  @media (hover: hover) {
+    .nse-card:hover {
+      --card-flare: 1;
+      transform: translateY(-4px);
+      box-shadow:
+        0 36px 90px -24px rgb(0 0 0 / 0.75),
+        0 0 48px -8px rgb(0 97 228 / 0.45),
+        inset 0 1px 0 rgb(255 255 255 / 0.08);
+    }
+  }
+  .nse-card.featured {
+    --card-ring: linear-gradient(180deg, rgb(104 248 255 / 0.7) 0%, rgb(5 140 255 / 0.55) 30%, rgb(42 65 132 / 0.25) 100%);
+    --card-flare: 1;
+    background:
+      radial-gradient(120% 75% at 50% 0%, rgb(5 140 255 / 0.32), transparent 65%),
+      linear-gradient(180deg, rgb(21 48 134 / 0.6) 0%, rgb(17 32 93 / 0.4) 50%, rgb(1 19 109 / 0.45) 100%);
+    box-shadow:
+      0 30px 80px -24px rgb(0 0 0 / 0.7),
+      var(--shadow-glow-cta),
+      inset 0 1px 0 rgb(255 255 255 / 0.1);
+  }
+  .nse-card.muted {
+    --card-ring: linear-gradient(180deg, rgb(255 255 255 / 0.14), rgb(255 255 255 / 0.04));
+    --card-flare: 0;
+    background: rgb(255 255 255 / 0.02);
+    box-shadow: none;
+  }
+  .nse-card.muted:hover {
+    --card-flare: 0;
+    transform: none;
+    box-shadow: none;
+  }
+
   /* BrandMention — nome do produto dentro do corpo */
   .nse-brand {
     font-weight: 700;

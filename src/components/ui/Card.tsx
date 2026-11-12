@@ -1,23 +1,14 @@
 import type { HTMLAttributes } from 'react'
 import { cn, pad2 } from '@/lib/utils'
 
-const VARIANTS = {
-  default: 'border-stroke-blue bg-surface-100 hover:bg-surface-200 hover:shadow-glow-cta',
-  muted: 'border-line bg-transparent',
-  featured: 'border-blue-500/60 bg-linear-to-b from-surface-200 to-surface-100 shadow-glow-cta',
-} as const
-
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: keyof typeof VARIANTS
+  /** default = vidro azul; featured = destaque com halo; muted = lado "apagado" do comparativo */
+  variant?: 'default' | 'muted' | 'featured'
 }
 
+/* Card — material de vidro escuro com borda de luz (.nse-card no index.css) */
 export function Card({ variant = 'default', className, ...props }: CardProps) {
-  return (
-    <div
-      className={cn('rounded-md border p-card transition-[background-color,box-shadow] duration-300', VARIANTS[variant], className)}
-      {...props}
-    />
-  )
+  return <div className={cn('nse-card p-card', variant !== 'default' && variant, className)} {...props} />
 }
 
 /* Número de etapa (T6): círculo com o número, o destaque é o topo da escada */

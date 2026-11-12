@@ -61,8 +61,9 @@ export function Slide({ children, tone = 'default', ambient = 'blinds', orbs = '
           </div>
         )}
         {ambient === 'grid' && (
-          <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_70%_65%_at_50%_50%,black_20%,transparent_80%)]">
-            <CellGrid />
+          // grade discreta, dissolvendo nas bordas
+          <div className="absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_60%_55%_at_50%_55%,black_0%,transparent_75%)]">
+            <CellGrid cellOpacity={0.16} gridOpacity={0.03} lineWidth={1} />
           </div>
         )}
         {ORB_PRESETS[orbs].map((orb, i) => (

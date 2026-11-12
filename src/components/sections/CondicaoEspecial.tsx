@@ -25,7 +25,7 @@ export function CondicaoEspecial() {
               className={cn('relative flex w-full flex-col items-center gap-2 text-center', option.badge && 'pt-9')}
             >
               {option.badge && (
-                <p className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-lg border border-glow-300/60 bg-blue-600 px-4 py-1 text-caption font-bold whitespace-nowrap uppercase">
+                <p className="absolute -top-3.5 left-1/2 z-10 -translate-x-1/2 rounded-lg border border-glow-300/60 bg-blue-600 px-4 py-1 text-caption font-bold whitespace-nowrap uppercase">
                   {option.badge}
                 </p>
               )}
