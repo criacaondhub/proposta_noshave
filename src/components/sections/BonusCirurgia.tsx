@@ -36,7 +36,7 @@ export function BonusCirurgia() {
       </ul>
 
       <Reveal order={8} className="mt-6 md:mt-8">
-        <p className="nse-body text-ink-muted">
+        <p className="nse-body">
           <RichText text={note} strongClassName="text-ink" />
         </p>
       </Reveal>

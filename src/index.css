@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Inter:ital,opsz,wght@0,14..32,200;0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,700;1,14..32,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Inter:ital,opsz,wght@0,14..32,200;0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,700;1,14..32,500;1,14..32,700&display=swap');
 @import "tailwindcss";
 @source "./**/*.{ts,tsx}";
 
@@ -44,13 +44,13 @@
 
   --text-subhead: clamp(1.5rem, min(2.8vw, 4.6svh), 2.5rem);
   --text-subhead--line-height: 1.15;
-  --text-subhead--letter-spacing: -0.015em;
-  --text-subhead--font-weight: 300;
+  --text-subhead--letter-spacing: -0.01em;
+  --text-subhead--font-weight: 200;
 
   --text-lead: clamp(1.125rem, min(1.6vw, 2.8svh), 1.5rem);
   --text-lead--line-height: 1.35;
   --text-lead--letter-spacing: -0.01em;
-  --text-lead--font-weight: 300;
+  --text-lead--font-weight: 200;
 
   --text-body: clamp(1rem, min(1.3vw, 2.3svh), 1.25rem);
   --text-body--line-height: 1.55;
@@ -59,7 +59,7 @@
   --text-eyebrow: clamp(0.8125rem, 1.1vw, 1.0625rem);
   --text-eyebrow--line-height: 1.2;
   --text-eyebrow--letter-spacing: 0.01em;
-  --text-eyebrow--font-weight: 700;
+  --text-eyebrow--font-weight: 500;
 
   --text-cta: clamp(0.9375rem, 1.2vw, 1.125rem);
   --text-cta--line-height: 1.2;
@@ -196,7 +196,7 @@
     background: linear-gradient(180deg, var(--color-surface-200) 0%, var(--color-surface-100) 100%);
     font-family: var(--font-sans);
     font-size: var(--text-eyebrow);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.01em;
     text-transform: uppercase;
@@ -247,8 +247,9 @@
   }
 
   /* Textos do sistema */
+  /* Subtítulo e lead — mesmo padrão do texto corrido (Inter ExtraLight), só maiores */
   .nse-sub {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-subhead);
     line-height: var(--text-subhead--line-height);
     letter-spacing: var(--text-subhead--letter-spacing);
@@ -256,11 +257,11 @@
     color: var(--color-ink);
   }
   .nse-sub strong {
-    font-weight: 600;
+    font-weight: 500;
     color: var(--color-blue-400);
   }
   .nse-lead {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-lead);
     line-height: var(--text-lead--line-height);
     letter-spacing: var(--text-lead--letter-spacing);
@@ -268,7 +269,7 @@
     color: var(--color-ink);
   }
   .nse-lead strong {
-    font-weight: 600;
+    font-weight: 500;
   }
   /* Texto corrido — Inter ExtraLight (padrão dos cards do slide 07) */
   .nse-body {

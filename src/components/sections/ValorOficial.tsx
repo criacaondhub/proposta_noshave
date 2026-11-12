@@ -35,7 +35,7 @@ export function ValorOficial() {
       </Reveal>
 
       <Reveal step={2} className="mt-6 md:mt-8">
-        <p className="rounded-lg border border-blue-500/60 bg-linear-to-b from-surface-200 to-surface-100 px-5 py-2.5 text-eyebrow font-bold text-ink uppercase shadow-glow-cta">
+        <p className="rounded-lg border border-blue-500/60 bg-linear-to-b from-surface-200 to-surface-100 px-5 py-2.5 text-eyebrow text-ink uppercase shadow-glow-cta">
           {badge}
         </p>
       </Reveal>

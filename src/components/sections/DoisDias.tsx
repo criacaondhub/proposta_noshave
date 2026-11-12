@@ -43,7 +43,7 @@ export function DoisDias() {
       {/* rodapé: fio de luz + destaque do jantar, centralizado */}
       <Reveal step={cards.length + 1} className="mt-8 flex flex-col items-center gap-4 text-center md:mt-10">
         <GlowDivider className="max-w-[28rem]" />
-        <p className="nse-lead">
+        <p className="nse-body">
           <RichText text={footer} strongClassName="text-blue-400" />
         </p>
       </Reveal>

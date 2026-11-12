@@ -24,7 +24,7 @@ export function Hero() {
         </p>
       </Reveal>
       <Reveal delay={AFTER_LOGO} order={1} className="mt-4 md:mt-5">
-        <p className="nse-body max-w-[36ch] text-ink-muted">
+        <p className="nse-body max-w-[36ch]">
           <RichText text={HERO.lead} strongClassName="text-ink" />
         </p>
       </Reveal>

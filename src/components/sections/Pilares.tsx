@@ -17,7 +17,7 @@ export function Pilares() {
         {pillars.map((pillar, i) => (
           <Reveal as="li" key={pillar.title} step={i + 1} className="flex">
             <Card className="flex w-full flex-col gap-3">
-              <p className="text-eyebrow font-bold text-blue-400 uppercase">{pillar.eyebrow}</p>
+              <p className="text-eyebrow text-blue-400 uppercase">{pillar.eyebrow}</p>
               <h3 className="font-display text-lead font-normal uppercase">{pillar.title}</h3>
               <p className="nse-body">
                 <RichText text={pillar.text} />

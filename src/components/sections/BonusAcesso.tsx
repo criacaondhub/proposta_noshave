@@ -24,8 +24,8 @@ export function BonusAcesso() {
           <GlowDivider variant="left" />
         </Reveal>
         <Reveal order={6} className="flex max-w-[30rem] flex-col gap-3 text-center md:text-left">
-          <p className="nse-lead">{caption}</p>
-          <p className="nse-body text-ink-muted">
+          <p className="nse-body">{caption}</p>
+          <p className="nse-body">
             <RichText text={body} strongClassName="text-ink" />
           </p>
         </Reveal>
