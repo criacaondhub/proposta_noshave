@@ -149,7 +149,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 | `depoimento-capa.webp` ✅ | 09 Depoimentos | Capa do player vertical: frame inicial do Shorts (recorte 9:16 da miniatura do YouTube), cores originais | 405×720 |
 | `Slide-10.webp` ✅ | 10 Transição | Metade esquerda, full-bleed (já tratada em azul, sem `.graded`); mobile no topo com máscara | 1080×1350 |
 | `Slide-17.webp` ✅ | 17 Fechamento | Metade esquerda na proporção original (já tratada em azul, sem `.graded` e sem fade inferior); mobile no topo com máscara | 1080×1350 |
-| `og-image.jpg` | Compartilhamento | Meta `og:image` | 1200×630 |
+| `og-image.jpg` ✅ | Compartilhamento | Gerada da capa (1200×630, logo + subtítulo, sem navegação) | 1200×630 |
 
 **Tratamento (`PhotoFrame`):**
 - Sem container retangular aparente e sem `border-radius` nas fotos de composição.
