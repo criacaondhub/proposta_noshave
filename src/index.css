@@ -1,8 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
 @import "tailwindcss";
 @source "./**/*.{ts,tsx}";
 
-@theme {
-  /* Preenchido pelo Agente 01 */
+@theme static {
+  /* Cores — só os tokens do design system */
+  --color-*: initial;
+  --color-bg-000: #02030a;
+  --color-bg-100: #0c1121;
+  --color-surface-100: #11205d;
+  --color-surface-200: #153086;
+  --color-stroke-blue: #2a4184;
+  --color-blue-950: #01136d;
+  --color-blue-800: #002384;
+  --color-blue-600: #0061e4;
+  --color-blue-500: #058cff;
+  --color-blue-400: #4695ff;
+  --color-glow-300: #2ca2f6;
+  --color-glow-100: #68f8ff;
+  --color-photo-highlight: #a5cefd;
+  --color-ink: #ffffff;
+  --color-ink-muted: #a9b3cc;
+  --color-line: #ffffff1a;
+
+  /* Tipografia */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: Figtree, "Helvetica Neue", Arial, sans-serif;
+
+  --text-display-xl: clamp(2.75rem, min(8.5vw, 13svh), 7.5rem);
+  --text-display-xl--line-height: 0.92;
+  --text-display-xl--letter-spacing: -0.045em;
+  --text-display-xl--font-weight: 700;
+
+  --text-headline: clamp(2rem, min(5vw, 8svh), 4.5rem);
+  --text-headline--line-height: 1;
+  --text-headline--letter-spacing: -0.04em;
+  --text-headline--font-weight: 600;
+
+  --text-headline-compact: clamp(1.75rem, min(3.4vw, 5.6svh), 3.25rem);
+  --text-headline-compact--line-height: 1;
+  --text-headline-compact--letter-spacing: -0.04em;
+  --text-headline-compact--font-weight: 600;
+
+  --text-subhead: clamp(1.5rem, min(2.8vw, 4.6svh), 2.5rem);
+  --text-subhead--line-height: 1.15;
+  --text-subhead--letter-spacing: -0.02em;
+
+  --text-lead: clamp(1.125rem, min(1.6vw, 2.8svh), 1.5rem);
+  --text-lead--line-height: 1.35;
+  --text-lead--letter-spacing: -0.01em;
+
+  --text-body: clamp(1rem, min(1.3vw, 2.3svh), 1.25rem);
+  --text-body--line-height: 1.4;
+
+  --text-eyebrow: clamp(0.8125rem, 1.1vw, 1.0625rem);
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.01em;
+  --text-eyebrow--font-weight: 700;
+
+  --text-cta: clamp(0.9375rem, 1.2vw, 1.125rem);
+  --text-cta--line-height: 1.2;
+  --text-cta--letter-spacing: 0.01em;
+  --text-cta--font-weight: 500;
+
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.4;
+
+  /* Espaçamentos e grid */
+  --spacing-slide-x: clamp(2rem, 5vw, 6rem);
+  --spacing-slide-y: clamp(4.5rem, 10svh, 6rem);
+  --spacing-header-y: clamp(1.25rem, 2.5vw, 2rem);
+  --spacing-gutter: clamp(1rem, 2vw, 2rem);
+  --spacing-card: clamp(1.5rem, 2.2vw, 2rem);
+  --container-page: 1440px;
+
+  /* Raios e luz */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-glow-cta: 0 0 32px 0 rgba(0, 97, 228, 0.55);
+  --shadow-glow-flare: 0 0 18px 3px rgba(104, 248, 255, 0.65);
+
+  /* Movimento */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-glow-pulse: glow-pulse 2.8s ease-in-out infinite;
+
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      box-shadow: var(--shadow-glow-cta);
+    }
+    50% {
+      box-shadow: 0 0 56px 6px rgba(0, 97, 228, 0.75);
+    }
+  }
 }
 
 /* ⚠️ REGRA ABSOLUTA: NUNCA coloque resets CSS fora de @layer.
@@ -11,14 +101,224 @@
    anulando silenciosamente classes como py-, px-, mx-auto, gap-, etc. */
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-000);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-blue-600);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-glow-100);
+    outline-offset: 4px;
   }
 }
 
-body {
-  font-family: var(--font-sans);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  -webkit-font-smoothing: antialiased;
+/* Componentes do design system (prefixo nse-) */
+@layer components {
+  /* Button — CTA com gradiente royal → navy e flares de luz no topo/base */
+  .nse-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: clamp(3.25rem, 7svh, 4rem);
+    padding: 0.875rem clamp(1.5rem, 3.4vw, 3rem);
+    border: 1px solid rgb(70 149 255 / 0.55);
+    border-radius: var(--radius-md);
+    background: linear-gradient(90deg, var(--color-blue-600) 0%, #0049be 45%, var(--color-blue-950) 100%);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-cta);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: var(--shadow-glow-cta);
+    cursor: pointer;
+    transition:
+      transform 0.25s ease-out,
+      box-shadow 0.25s ease-out;
+  }
+  .nse-cta::before,
+  .nse-cta::after {
+    content: "";
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, rgb(104 248 255 / 0), var(--color-glow-100) 50%, rgb(104 248 255 / 0));
+    box-shadow: var(--shadow-glow-flare);
+  }
+  .nse-cta::before {
+    top: -1px;
+  }
+  .nse-cta::after {
+    bottom: -1px;
+  }
+  .nse-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 44px 4px rgb(0 97 228 / 0.65);
+  }
+  .nse-cta.sm {
+    min-height: 44px;
+    padding: 10px 32px;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+  }
+
+  /* Eyebrow — selo acima do headline */
+  .nse-eyebrow {
+    display: inline-block;
+    padding: 0.6em 1.4em;
+    border: 1px solid var(--color-stroke-blue);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, var(--color-surface-200) 0%, var(--color-surface-100) 100%);
+    font-family: var(--font-sans);
+    font-size: var(--text-eyebrow);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+  .nse-eyebrow em {
+    font-style: italic;
+  }
+
+  /* GlowDivider — linha de luz com núcleo ciano */
+  .nse-divider {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    height: 2px;
+    border: 0;
+    margin: 0;
+    background: linear-gradient(90deg, rgb(0 97 228 / 0) 0%, rgb(0 97 228 / 0.8) 30%, var(--color-glow-100) 50%, rgb(0 97 228 / 0.8) 70%, rgb(0 97 228 / 0) 100%);
+  }
+  .nse-divider::after {
+    content: "";
+    position: absolute;
+    left: 42%;
+    right: 42%;
+    top: -1px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--color-glow-100);
+    box-shadow: var(--shadow-glow-flare);
+    opacity: 0.85;
+  }
+  .nse-divider.left {
+    max-width: 420px;
+    background: linear-gradient(90deg, var(--color-blue-800) 0%, var(--color-blue-600) 60%, rgb(0 97 228 / 0) 100%);
+  }
+  .nse-divider.left::after {
+    display: none;
+  }
+
+  /* HighlightBand — faixa atrás do subtítulo, sangrando até a borda direita da tela */
+  .nse-band {
+    --band-pad: clamp(1.25rem, 2.5vw, 3rem);
+    position: relative;
+    padding: clamp(1rem, 2.6svh, 2rem) var(--band-pad);
+    margin-inline-start: calc(-1 * var(--band-pad));
+    margin-inline-end: calc(-1 * (var(--spacing-slide-x) + max(0px, (100vw - var(--container-page)) / 2)));
+    background: linear-gradient(90deg, rgb(12 17 33 / 0) 0%, rgb(8 35 82 / 0.85) 40%, var(--color-blue-800) 100%);
+  }
+
+  /* Textos do sistema */
+  .nse-sub {
+    font-family: var(--font-display);
+    font-size: var(--text-subhead);
+    line-height: var(--text-subhead--line-height);
+    letter-spacing: var(--text-subhead--letter-spacing);
+    color: var(--color-ink);
+  }
+  .nse-sub strong {
+    font-weight: 700;
+    color: var(--color-blue-400);
+  }
+  .nse-lead {
+    font-family: var(--font-display);
+    font-size: var(--text-lead);
+    line-height: var(--text-lead--line-height);
+    letter-spacing: var(--text-lead--letter-spacing);
+    color: var(--color-ink);
+  }
+  .nse-lead strong {
+    font-weight: 700;
+  }
+  .nse-body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    color: var(--color-ink);
+  }
+  .nse-body strong {
+    font-weight: 700;
+  }
+
+  /* BrandMention — nome do produto dentro do corpo */
+  .nse-brand {
+    font-weight: 700;
+    color: var(--color-blue-500);
+  }
+
+  /* PhotoFrame — fotografia em grade azul + vinheta que afunda no preto */
+  .nse-photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg-000);
+  }
+  .nse-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .nse-photo.graded img {
+    filter: grayscale(1) contrast(1.15) brightness(0.9);
+  }
+  .nse-photo.graded::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, var(--color-blue-600), var(--color-blue-950));
+    mix-blend-mode: color;
+  }
+  .nse-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgb(2 3 10 / 0) 45%, rgb(2 3 10 / 0.85) 82%, var(--color-bg-000) 100%),
+      radial-gradient(ellipse at 50% 35%, rgb(2 3 10 / 0) 55%, rgb(2 3 10 / 0.7) 100%);
+  }
+  .nse-photo.no-fade::after {
+    display: none;
+  }
+  .nse-keyhole {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 160'><circle cx='50' cy='42' r='42'/><path d='M22 64 L8 160 H92 L78 64 Z'/></svg>") center / contain no-repeat;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 160'><circle cx='50' cy='42' r='42'/><path d='M22 64 L8 160 H92 L78 64 Z'/></svg>") center / contain no-repeat;
+  }
 }
