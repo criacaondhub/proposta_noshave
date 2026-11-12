@@ -1,5 +1,18 @@
 import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
+import { extendTailwindMerge } from 'tailwind-merge'
+
+// Ensina ao tailwind-merge os tokens do design system; sem isso `text-headline`
+// é lido como cor e some quando aparece junto de `text-ink`, `text-blue-500` etc.
+const twMerge = extendTailwindMerge({
+  extend: {
+    theme: {
+      text: ['display-xl', 'headline', 'headline-compact', 'subhead', 'lead', 'body', 'eyebrow', 'cta', 'caption'],
+      spacing: ['slide-x', 'slide-y', 'header-y', 'gutter', 'card'],
+      shadow: ['glow-cta', 'glow-flare'],
+      container: ['page'],
+    },
+  },
+})
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
