@@ -17,7 +17,7 @@ export function Ambiente() {
   const { title, body, cards } = AMBIENTE
 
   return (
-    <Slide>
+    <Slide orbs="right">
       <SectionHeading title={title} />
       <Reveal order={4} className="mx-auto mt-6 max-w-[46rem] text-center">
         <p className="nse-body">

@@ -7,13 +7,7 @@ import { GlowDivider } from '@/components/ui/Typography'
 // 14 · T9 (sem foto) — Uma frase sobre bg-000 com um único feixe de luz horizontal
 export function NaoVaiPagar() {
   return (
-    <Slide
-      tone="deep"
-      backdrop={
-        <div className="h-full w-full bg-[radial-gradient(45%_30%_at_50%_58%,rgb(0_97_228/0.18),transparent_75%)]" />
-      }
-      className="items-center text-center"
-    >
+    <Slide tone="deep" ambient="beam" orbs="center" className="items-center text-center">
       <Reveal order={0}>
         <h2 className="max-w-[18ch] font-display text-headline font-normal tracking-[-0.02em] text-balance">
           <RichText text={NAO_VAI_PAGAR.phrase} strongClassName="font-bold text-blue-400" />

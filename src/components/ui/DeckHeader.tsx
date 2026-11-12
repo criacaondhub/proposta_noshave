@@ -1,9 +1,12 @@
 import { SITE } from '@/config/content'
 import { useDeck } from '@/lib/deck'
-import { pad2 } from '@/lib/utils'
+import { cn, pad2 } from '@/lib/utils'
+import { LogoMark } from './logo/Logo'
 
 export function DeckHeader() {
   const { current, total, goTo } = useDeck()
+  // na capa o logo grande já está no centro
+  const onCover = current === 0
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-40 bg-linear-to-b from-bg-000/80 to-transparent">
@@ -12,9 +15,13 @@ export function DeckHeader() {
           type="button"
           onClick={() => goTo(0)}
           aria-label={`${SITE.wordmark} · ${SITE.homeLabel}`}
-          className="pointer-events-auto -my-3 inline-flex min-h-11 items-center font-display text-sm font-bold uppercase tracking-[-0.02em] text-ink"
+          tabIndex={onCover ? -1 : undefined}
+          className={cn(
+            '-my-3 inline-flex min-h-11 items-center text-ink transition-opacity duration-500',
+            onCover ? 'opacity-0' : 'pointer-events-auto opacity-100',
+          )}
         >
-          {SITE.wordmark}
+          <LogoMark className="w-28 md:w-32" />
         </button>
         <p className="text-caption tabular-nums text-ink-muted">
           <span className="sr-only">{SITE.counterLabel} </span>

@@ -29,6 +29,7 @@ export interface Photo {
 }
 
 export const SITE = {
+  // nome lido por leitores de tela no logo (o desenho vetorial está em components/ui/logo)
   wordmark: 'No Shave Experience',
   deckLabel: 'Apresentação No Shave Experience',
   homeLabel: 'voltar ao início',
@@ -42,17 +43,12 @@ export const SITE = {
   photoPending: 'Foto pendente',
 }
 
-// 01 · Hero — T1
+// 01 · Capa — logo centralizado se desenhando
 export const HERO = {
   id: 'inicio',
   label: 'No Shave Experience',
-  title: ['No Shave', 'Experience'],
   subhead: 'A imersão definitiva na técnica **sem raspagem**.',
   lead: 'Hands On, acompanhamento e direcionamento com o **Dr. Rafael Ultramar**.',
-  photo: {
-    src: 'assets/hero-dr-rafael.webp',
-    alt: 'Dr. Rafael Ultramar com lupas cirúrgicas no centro cirúrgico',
-  } satisfies Photo,
 }
 
 // 02 · A nova fronteira — T3

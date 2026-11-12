@@ -11,7 +11,7 @@ export function QuatroMedicos() {
   const { eyebrow, title, body } = TURMA
 
   return (
-    <Slide className="items-center text-center">
+    <Slide ambient="grid" orbs="strong" className="items-center text-center">
       <SectionHeading eyebrow={eyebrow} title={title} divider />
       <Reveal order={4} className="mt-6">
         <p className="nse-body mx-auto max-w-[44rem]">

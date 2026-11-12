@@ -13,6 +13,8 @@ export function Fechamento() {
   return (
     <Slide
       tone="deep"
+      ambient="none"
+      orbs="right"
       backdrop={
         <PhotoFrame
           photo={photo}

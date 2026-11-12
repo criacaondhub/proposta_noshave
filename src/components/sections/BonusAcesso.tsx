@@ -12,7 +12,7 @@ export function BonusAcesso() {
   const { inView } = useSlide()
 
   return (
-    <Slide>
+    <Slide orbs="strong">
       <SectionHeading eyebrow={eyebrow} title={title} subhead={subhead} />
 
       <div className="mt-8 flex flex-col items-center gap-5 md:mt-12 md:flex-row md:justify-center md:gap-8">

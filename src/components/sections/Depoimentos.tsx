@@ -12,7 +12,7 @@ export function Depoimentos() {
   const [active, setActive] = useState(0)
 
   return (
-    <Slide className="items-center">
+    <Slide orbs="center" className="items-center">
       <SectionHeading title={title} />
 
       <Reveal order={3} className="mt-8 w-[min(100%,56rem,calc((100svh_-_21rem)_*_16_/_9))] md:mt-10">

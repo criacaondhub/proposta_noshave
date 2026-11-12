@@ -12,10 +12,12 @@ interface RevealProps {
   /** posição na cascata dentro da mesma etapa (selo → headline → corpo → resto) */
   order?: number
   as?: keyof typeof TAGS
+  /** atraso extra em segundos (ex.: esperar o logo da capa terminar de desenhar) */
+  delay?: number
   className?: string
 }
 
-export function Reveal({ children, step = 0, order = 0, as = 'div', className }: RevealProps) {
+export function Reveal({ children, step = 0, order = 0, as = 'div', delay = 0, className }: RevealProps) {
   const { inView, revealed, stepMode } = useSlide()
   const reduceMotion = useReducedMotion()
   const visible = inView && revealed >= step
@@ -32,7 +34,7 @@ export function Reveal({ children, step = 0, order = 0, as = 'div', className }:
       animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: offset }}
       transition={
         visible
-          ? { duration: 0.6, ease: EASE, delay: stepDelay + order * 0.08 }
+          ? { duration: 0.6, ease: EASE, delay: delay + stepDelay + order * 0.08 }
           : { duration: 0.3, ease: 'easeIn' }
       }
       inert={inView && !visible}

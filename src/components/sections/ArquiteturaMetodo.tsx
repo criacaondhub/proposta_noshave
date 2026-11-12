@@ -22,7 +22,7 @@ export function ArquiteturaMetodo() {
   const { revealed } = useSlide()
 
   return (
-    <Slide>
+    <Slide orbs="left">
       <SectionHeading title={title} align="left" />
 
       <ol className="relative mt-8 flex flex-col gap-4 pl-16 md:mt-auto md:h-[44svh] md:flex-row md:items-end md:gap-6 md:pl-0">

@@ -14,7 +14,7 @@ export function CondicaoEspecial() {
   const { inView, revealed } = useSlide()
 
   return (
-    <Slide className="items-center">
+    <Slide orbs="wide" className="items-center">
       <SectionHeading eyebrow={eyebrow} title={title} subhead={subhead} size="compact" />
 
       <div className="mt-8 grid w-full max-w-[56rem] gap-5 md:mt-10 md:grid-cols-2 md:gap-6">

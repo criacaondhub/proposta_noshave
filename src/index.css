@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,700;1,14..32,700&display=swap');
 @import "tailwindcss";
 @source "./**/*.{ts,tsx}";
 
@@ -23,8 +23,9 @@
   --color-line: #ffffff1a;
 
   /* Tipografia */
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: Figtree, "Helvetica Neue", Arial, sans-serif;
+  /* Mesmas famílias da landing experience.rafaelultramar.com.br */
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-display: Montserrat, system-ui, sans-serif;
 
   --text-display-xl: clamp(2.75rem, min(8.5vw, 13svh), 7.5rem);
   --text-display-xl--line-height: 0.92;

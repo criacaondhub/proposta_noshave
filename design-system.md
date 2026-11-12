@@ -54,12 +54,11 @@ Use a luz com escassez: no máximo um divisor por bloco e um CTA iluminado por t
 
 | Família | Fonte | Token | Uso |
 |---|---|---|---|
-| Display | **Figtree** (Google Fonts, 400/600/700) | `font-display` | Headline, nome do produto, subtítulos, números |
-| Texto | **Helvetica Neue** → Helvetica → Arial | `font-sans` (padrão do body) | Selo, corpo, CTA, legendas |
+| Display | **Montserrat** (Google Fonts, 300/400/600/700) | `font-display` | Headline, subtítulos, números |
+| Texto | **Inter** (Google Fonts, 400/500/700 + 700 itálico) | `font-sans` (padrão do body) | Selo, corpo, CTA, legendas |
 
-- A Figtree substitui a Gilroy das peças até confirmar a licença web. Com os `.woff2` da Gilroy, basta trocar `--font-display`.
-- A Helvetica Neue não existe no Google Fonts: aparece no Apple. Em Windows e Android cai para **Arial**.
-- O import da Figtree fica no topo do `src/index.css` com `display=swap`.
+- Mesmas famílias da landing do produto (experience.rafaelultramar.com.br). Lá os títulos usam Montserrat **Light (300)**; aqui seguem os pesos do DS (600/700), com o 300 já carregado caso se queira o visual da landing.
+- O import das duas fica no topo do `src/index.css` com `display=swap`.
 
 ### Escala
 
@@ -108,7 +107,7 @@ Valores tirados do CSS da proposta FUE Ultramar.
 
 - Cada slide ocupa `100vw × 100svh`. A trilha (`<main>`) tem `scroll-snap` em X no desktop e em Y no mobile.
 - No mobile o slide tem **altura mínima** de uma tela: se o conteúdo for maior, ele cresce e o snap respeita.
-- **Header fixo:** à esquerda o wordmark "NO SHAVE EXPERIENCE" (display 700, pequeno); à direita o contador `03 / 17` (texto, `ink-muted` com o atual em `ink`).
+- **Header fixo:** à esquerda o logo (`LogoMark`, some na capa porque o logo grande já está no centro); à direita o contador `03 / 17` (texto, `ink-muted` com o atual em `ink`).
 - **Progresso:** linha de luz na base da tela, crescendo da esquerda para a direita, com o núcleo ciano na ponta.
 - **Setas laterais:** só em telas ≥ 768px com mouse/trackpad. No slide 1 aparece a dica "avance".
 - **Fundo:** `bg-100` por padrão; slides com foto full-bleed e transições usam `bg-000`.
@@ -129,7 +128,6 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 
 | Arquivo | Slide | Posição | Proporção sugerida |
 |---|---|---|---|
-| `hero-dr-rafael.webp` | 01 Hero | Metade direita (≈ col 6–12), sangrando à direita; mobile no topo (≈ 48% da altura) | 1600×1600 |
 | `resultado-01.webp` · `-02` · `-03` | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto) | 4:3 · 1200×900 |
 | `depoimento-capa.webp` | 09 Depoimentos | Capa do player | 16:9 · 1600×900 |
 | `cirurgia-equipe.webp` | 10 Transição | Metade esquerda, full-bleed; mobile no topo | 1600×1600 |
@@ -162,7 +160,38 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 | `CountUp` | — | Números de valor sobem ao entrar (formato pt-BR, algarismos tabulares). |
 | `Card` | utilitários | `surface-100` + `stroke-blue` + `radius-md`; hover → `surface-200` + halo leve. Variações `muted` (borda `line`) e `featured` (halo). |
 
-## 6. Movimento
+## 6. Logo
+
+- Fonte: `public/assets/logo-no-shave-azul.webp` (o mesmo da landing, branco, 768×146).
+- Vetorizado em `src/components/ui/logo/logoPaths.ts` (17 letras) e `public/assets/logo-no-shave.svg`, com o recorte sem a margem transparente do arquivo original. A linha de luz entre "NO SHAVE" e "EXPERIENCE" é um elemento próprio com o mesmo perfil de brilho.
+- `LogoMark`: versão estática (header). `LogoReveal`: versão animada da capa.
+- Se chegar o SVG oficial, basta trocar os caminhos em `logoPaths.ts`.
+- Favicon: `public/favicon.svg` (o "R" Ultramar sobre o gradiente azul, o mesmo da landing).
+
+## 7. Capa (slide 01)
+
+Composição centralizada, sem foto, inspirada na capa da proposta do SelfMed Club:
+
+1. Cada letra do logo se desenha com traço metálico azul (`stroke-blue → blue-400 → ink → glow-100`), 2,2s por letra, 60ms entre letras.
+2. O preenchimento branco entra enquanto o traço some; a linha de luz se abre do centro com núcleo ciano.
+3. Um brilho atravessa o logo recortado pelas letras, repetindo a cada 6s.
+4. Subtítulo e lead entram em 2,6s, centralizados.
+
+## 8. Fundos
+
+Mesmo sistema de fundos da proposta FUE Ultramar, recolorido:
+
+| Fundo | Componente | Onde |
+|---|---|---|
+| Cortina de luz (faixas verticais + granulado + holofote em diagonal) | `GradientBlinds` (WebGL), `blue-500`, opacidade 22% | Padrão dos slides de conteúdo e da capa |
+| Cortina inclinada em degradê | `GradientBlinds` `blue-500 → blue-950`, 12°, opacidade 50% | Transição "não vai pagar" (14) e preço (15) |
+| Grade de células iluminadas | `CellGrid` (canvas estático) com vinheta radial | Slide 04 (4 médicos) |
+| Orbes de luz | `GlowOrb` (blur 120px, `royal`/`azure`), presets em `orbPresets.ts` | Todos, variando a posição |
+
+- O WebGL só existe no slide atual (animado) e nos vizinhos (quadro parado): no máximo 3 contextos.
+- `prefers-reduced-motion`: a cortina fica parada e o logo aparece pronto.
+
+## 9. Movimento
 
 - **Entrada:** fade + translate curto (20px), 600ms, `cubic-bezier(.22,1,.36,1)`, em cascata (selo → headline → corpo → resto).
 - **Troca de slide:** scroll suave nativo; trava de 600ms entre passos.

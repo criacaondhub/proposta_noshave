@@ -10,7 +10,7 @@ export function Pilares() {
   const { title, pillars } = PILARES
 
   return (
-    <Slide>
+    <Slide orbs="center">
       <SectionHeading title={title} />
 
       <ul className="mt-8 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-6">

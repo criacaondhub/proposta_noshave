@@ -1,42 +1,33 @@
-import { HERO } from '@/config/content'
-import { PhotoFrame } from '@/components/ui/PhotoFrame'
+import { HERO, SITE } from '@/config/content'
+import { useSlide } from '@/lib/deck'
+import { LogoReveal } from '@/components/ui/logo/Logo'
 import { Reveal } from '@/components/ui/Reveal'
 import { RichText } from '@/components/ui/RichText'
 import { Slide } from '@/components/ui/Slide'
-import { Headline, HighlightBand } from '@/components/ui/Typography'
 
-// 01 · T1 — Hero split com a foto sangrando à direita
+// O texto entra quando o logo termina de desenhar
+const AFTER_LOGO = 2.6
+
+// 01 · Capa — logo centralizado se desenhando (motion design), texto em seguida
 export function Hero() {
+  const { inView } = useSlide()
+
   return (
-    <Slide
-      tone="deep"
-      backdrop={
-        <PhotoFrame
-          photo={HERO.photo}
-          eager
-          edges={['left']}
-          className="absolute inset-x-0 top-0 h-[50svh] md:inset-y-0 md:right-0 md:left-auto md:h-full md:w-[58%]"
-        />
-      }
-      className="justify-end pt-[44svh] md:justify-center md:pt-slide-y"
-    >
-      <div className="flex flex-col gap-6 md:gap-8">
-        <Reveal order={0}>
-          <Headline as="h1" size="display" tone="ink" lines={HERO.title} />
-        </Reveal>
-        <Reveal order={1}>
-          <HighlightBand>
-            <p className="nse-sub max-w-[22ch]">
-              <RichText text={HERO.subhead} />
-            </p>
-          </HighlightBand>
-        </Reveal>
-        <Reveal order={2}>
-          <p className="nse-lead max-w-[32ch]">
-            <RichText text={HERO.lead} />
-          </p>
-        </Reveal>
-      </div>
+    <Slide tone="deep" orbs="center" className="items-center text-center">
+      <h1 className="w-[clamp(17rem,min(62vw,74svh),46rem)]">
+        <LogoReveal play={inView} label={SITE.wordmark} className="w-full" />
+      </h1>
+
+      <Reveal delay={AFTER_LOGO} order={0} className="mt-10 md:mt-14">
+        <p className="nse-sub max-w-[30ch] text-balance">
+          <RichText text={HERO.subhead} />
+        </p>
+      </Reveal>
+      <Reveal delay={AFTER_LOGO} order={1} className="mt-4 md:mt-5">
+        <p className="nse-body max-w-[36ch] text-ink-muted">
+          <RichText text={HERO.lead} strongClassName="text-ink" />
+        </p>
+      </Reveal>
     </Slide>
   )
 }

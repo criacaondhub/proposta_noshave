@@ -9,6 +9,8 @@ export function NaoAcabaAqui() {
   return (
     <Slide
       tone="deep"
+      ambient="none"
+      orbs="right"
       backdrop={
         <PhotoFrame
           photo={NAO_ACABA.photo}

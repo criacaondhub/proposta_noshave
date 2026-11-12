@@ -10,7 +10,7 @@ export function BonusCirurgia() {
   const { eyebrow, title, band, body, photo } = BONUS_CIRURGIA
 
   return (
-    <Slide className="md:grid md:grid-cols-12 md:items-center md:gap-gutter">
+    <Slide orbs="wide" className="md:grid md:grid-cols-12 md:items-center md:gap-gutter">
       <Reveal order={0} className="mx-auto aspect-[100/160] h-[36svh] md:col-span-5 md:h-[72svh]">
         <PhotoFrame photo={photo} keyhole className="h-full w-full" />
       </Reveal>

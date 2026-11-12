@@ -1,12 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+  <!-- Generator: Adobe Illustrator 30.7.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 114)  -->
   <defs>
-    <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0" stop-color="#0061E4"/>
-      <stop offset="1" stop-color="#01136D"/>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: url(#Gradiente_sem_nome_27);
+      }
+    </style>
+    <linearGradient id="Gradiente_sem_nome_27" data-name="Gradiente sem nome 27" x1="0" y1="256" x2="512" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0165ea"/>
+      <stop offset="1" stop-color="#01116a"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="12" fill="#0C1121"/>
-  <rect x="6" y="6" width="52" height="52" rx="10" fill="url(#g)" stroke="#4695FF" stroke-opacity=".55"/>
-  <path d="M20 44V20h5l14 15V20h5v24h-5L25 29v15z" fill="#fff"/>
-  <rect x="22" y="5" width="20" height="2" rx="1" fill="#68F8FF"/>
+  <rect class="st1" width="512" height="512" rx="142.2" ry="142.2"/>
+  <path class="st0" d="M256.2,92.4c56.5,0,103,45.8,103,102.6s-20.2,72.9-51.2,90.6L134.2,92.4h122ZM134.2,149.7v127.3l129.2,142.6h114.3L134.2,149.7ZM211.7,419.6l-77.5-84.4v84.4h77.5Z"/>
 </svg>

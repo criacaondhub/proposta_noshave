@@ -10,7 +10,7 @@ export function ResultadoInvisivel() {
   const { eyebrow, title, cards } = RESULTADO
 
   return (
-    <Slide>
+    <Slide orbs="wide">
       <SectionHeading eyebrow={eyebrow} title={title} />
 
       <ul className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">

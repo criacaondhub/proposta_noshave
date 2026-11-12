@@ -12,7 +12,7 @@ export function ValorOficial() {
   const { inView, revealed } = useSlide()
 
   return (
-    <Slide className="items-center text-center">
+    <Slide ambient="beam" orbs="strong" className="items-center text-center">
       <Reveal order={0}>
         <Eyebrow text={eyebrow} />
       </Reveal>
