@@ -16,7 +16,7 @@ export function NovaFronteira() {
         {/* no mobile o lado destaque vem primeiro */}
         <Reveal step={1} className="order-2 md:order-1">
           <Card variant="muted">
-            <h3 className="font-display text-lead font-semibold text-ink-muted uppercase">{muted.title}</h3>
+            <h3 className="font-display text-lead font-normal text-ink-muted uppercase">{muted.title}</h3>
             <ul className="mt-5 flex flex-col gap-3">
               {muted.items.map((item) => (
                 <li key={item} className="nse-body flex items-start gap-3 text-ink-muted">
@@ -30,7 +30,7 @@ export function NovaFronteira() {
 
         <Reveal step={2} className="order-1 md:order-2">
           <Card variant="featured" className="md:py-12">
-            <h3 className="font-display text-lead font-semibold text-ink uppercase">{featured.title}</h3>
+            <h3 className="font-display text-lead font-normal text-ink uppercase">{featured.title}</h3>
             <ul className="mt-5 flex flex-col gap-3">
               {featured.items.map((item) => (
                 <li key={item} className="nse-body flex items-start gap-3">

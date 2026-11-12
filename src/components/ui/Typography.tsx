@@ -33,7 +33,7 @@ interface HeadlineProps {
   className?: string
 }
 
-export function Headline({ lines, as: Tag = 'h2', size = 'default', tone = 'royal', className }: HeadlineProps) {
+export function Headline({ lines, as: Tag = 'h2', size = 'default', tone = 'azure', className }: HeadlineProps) {
   const [first, ...rest] = lines
   return (
     <Tag className={cn('font-display text-balance text-ink uppercase', HEADLINE_SIZES[size], className)}>
@@ -75,7 +75,7 @@ export function SectionHeading({
   subhead,
   divider = false,
   size = 'default',
-  tone = 'royal',
+  tone = 'azure',
   align = 'center',
   className,
 }: SectionHeadingProps) {

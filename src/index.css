@@ -28,30 +28,32 @@
   --font-display: Montserrat, system-ui, sans-serif;
 
   --text-display-xl: clamp(2.75rem, min(8.5vw, 13svh), 7.5rem);
-  --text-display-xl--line-height: 0.92;
-  --text-display-xl--letter-spacing: -0.045em;
-  --text-display-xl--font-weight: 700;
+  --text-display-xl--line-height: 1;
+  --text-display-xl--letter-spacing: -0.025em;
+  --text-display-xl--font-weight: 300;
 
   --text-headline: clamp(2rem, min(5vw, 8svh), 4.5rem);
-  --text-headline--line-height: 1;
-  --text-headline--letter-spacing: -0.04em;
-  --text-headline--font-weight: 600;
+  --text-headline--line-height: 1.15;
+  --text-headline--letter-spacing: -0.025em;
+  --text-headline--font-weight: 300;
 
   --text-headline-compact: clamp(1.75rem, min(3.4vw, 5.6svh), 3.25rem);
-  --text-headline-compact--line-height: 1;
-  --text-headline-compact--letter-spacing: -0.04em;
-  --text-headline-compact--font-weight: 600;
+  --text-headline-compact--line-height: 1.15;
+  --text-headline-compact--letter-spacing: -0.025em;
+  --text-headline-compact--font-weight: 300;
 
   --text-subhead: clamp(1.5rem, min(2.8vw, 4.6svh), 2.5rem);
   --text-subhead--line-height: 1.15;
-  --text-subhead--letter-spacing: -0.02em;
+  --text-subhead--letter-spacing: -0.015em;
+  --text-subhead--font-weight: 300;
 
   --text-lead: clamp(1.125rem, min(1.6vw, 2.8svh), 1.5rem);
   --text-lead--line-height: 1.35;
   --text-lead--letter-spacing: -0.01em;
+  --text-lead--font-weight: 300;
 
   --text-body: clamp(1rem, min(1.3vw, 2.3svh), 1.25rem);
-  --text-body--line-height: 1.4;
+  --text-body--line-height: 1.55;
 
   --text-eyebrow: clamp(0.8125rem, 1.1vw, 1.0625rem);
   --text-eyebrow--line-height: 1.2;
@@ -60,8 +62,8 @@
 
   --text-cta: clamp(0.9375rem, 1.2vw, 1.125rem);
   --text-cta--line-height: 1.2;
-  --text-cta--letter-spacing: 0.01em;
-  --text-cta--font-weight: 500;
+  --text-cta--letter-spacing: -0.025em;
+  --text-cta--font-weight: 300;
 
   --text-caption: 0.875rem;
   --text-caption--line-height: 1.4;
@@ -143,11 +145,11 @@
     border-radius: var(--radius-md);
     background: linear-gradient(90deg, var(--color-blue-600) 0%, #0049be 45%, var(--color-blue-950) 100%);
     color: var(--color-ink);
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-size: var(--text-cta);
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.2;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.025em;
     text-transform: uppercase;
     text-decoration: none;
     box-shadow: var(--shadow-glow-cta);
@@ -249,10 +251,11 @@
     font-size: var(--text-subhead);
     line-height: var(--text-subhead--line-height);
     letter-spacing: var(--text-subhead--letter-spacing);
+    font-weight: var(--text-subhead--font-weight);
     color: var(--color-ink);
   }
   .nse-sub strong {
-    font-weight: 700;
+    font-weight: 600;
     color: var(--color-blue-400);
   }
   .nse-lead {
@@ -260,10 +263,11 @@
     font-size: var(--text-lead);
     line-height: var(--text-lead--line-height);
     letter-spacing: var(--text-lead--letter-spacing);
+    font-weight: var(--text-lead--font-weight);
     color: var(--color-ink);
   }
   .nse-lead strong {
-    font-weight: 700;
+    font-weight: 600;
   }
   .nse-body {
     font-family: var(--font-sans);

@@ -28,9 +28,9 @@ export function ValorOficial() {
       <Reveal step={1} className="mt-2 flex items-start gap-2 md:gap-4">
         <span className="nse-lead mt-[1.2em] text-ink-muted uppercase">{toLabel}</span>
         <p className="flex items-start font-display text-display-xl text-ink">
-          <span className="mt-[0.2em] mr-[0.15em] text-subhead font-semibold">R$</span>
+          <span className="mt-[0.2em] mr-[0.15em] text-subhead">R$</span>
           <CountUp value={to} start={inView && revealed >= 1} />
-          <span className="mt-[0.2em] text-subhead font-semibold">,00</span>
+          <span className="mt-[0.2em] text-subhead">,00</span>
         </p>
       </Reveal>
 

@@ -38,8 +38,8 @@ export function Entregaveis() {
           </ul>
 
           <Reveal step={totalStep} className="flex items-baseline justify-between gap-4 pt-4 md:pt-5">
-            <span className="font-display text-subhead font-semibold uppercase">{totalLabel}</span>
-            <span className="font-display text-headline-compact font-bold whitespace-nowrap text-blue-500">
+            <span className="font-display text-subhead uppercase">{totalLabel}</span>
+            <span className="font-display text-headline-compact whitespace-nowrap text-blue-500">
               R$ <CountUp value={total} start={inView && revealed >= totalStep} />
             </span>
           </Reveal>

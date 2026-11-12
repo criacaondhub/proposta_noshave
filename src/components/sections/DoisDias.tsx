@@ -26,7 +26,7 @@ export function DoisDias() {
               )}
             </div>
             <Card>
-              <h3 className="font-display text-lead font-semibold uppercase">{card.title}</h3>
+              <h3 className="font-display text-lead font-normal uppercase">{card.title}</h3>
               <ul className="mt-4 flex flex-col gap-3">
                 {card.items.map((item) => (
                   <li key={item.text} className="nse-body">

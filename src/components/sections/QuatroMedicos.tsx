@@ -70,7 +70,7 @@ function Seats() {
             <span
               style={delay}
               className={cn(
-                'relative font-display text-headline-compact font-bold transition-colors duration-700',
+                'relative font-display text-headline-compact transition-colors duration-700',
                 inView ? 'text-ink' : 'text-ink-muted',
               )}
             >

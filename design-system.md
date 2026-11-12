@@ -62,10 +62,26 @@ Use a luz com escassez: no máximo um divisor por bloco e um CTA iluminado por t
 
 ### Escala
 
-Os valores máximos são os do DS (peças 1080×1350). O mínimo garante "EXPERIENCE" e "ESPECIALISTAS" em 365px. O meio do `clamp` usa a **menor** entre largura e altura da tela, para o slide caber em notebook de 768px de altura.
+Tipografia igual à da landing experience.rafaelultramar.com.br: títulos em **Montserrat Light (300), caixa alta, tracking -0.025em**; texto corrido em **Inter 400**. Os valores máximos são os do DS; o meio do `clamp` usa a **menor** entre largura e altura da tela.
 
 | Token / classe | Tamanho (mín → máx) | Altura | Tracking | Peso | Caixa |
 |---|---|---|---|---|---|
+| `text-display-xl` | `clamp(2.75rem, min(8.5vw, 13svh), 7.5rem)` · 44 → 120px | 1.0 | -0.025em | 300 | números grandes (preço, "90") |
+| `text-headline` | `clamp(2rem, min(5vw, 8svh), 4.5rem)` · 32 → 72px | 1.15 | -0.025em | 300 | ALTA |
+| `text-headline-compact` | `clamp(1.75rem, min(3.4vw, 5.6svh), 3.25rem)` · 28 → 52px | 1.15 | -0.025em | 300 | ALTA |
+| `text-subhead` | `clamp(1.5rem, min(2.8vw, 4.6svh), 2.5rem)` · 24 → 40px | 1.15 | -0.015em | 300 (destaque 600 + `blue-400`) | normal |
+| `text-lead` | `clamp(1.125rem, min(1.6vw, 2.8svh), 1.5rem)` · 18 → 24px | 1.35 | -0.01em | 300 (títulos de card: 400, caixa alta) | normal |
+| `text-body` (Inter) | `clamp(1rem, min(1.3vw, 2.3svh), 1.25rem)` · 16 → 20px | 1.55 | — | 400 (marca 700 + `blue-500`) | normal |
+| `text-eyebrow` (Inter) | `clamp(0.8125rem, 1.1vw, 1.0625rem)` · 13 → 17px | 1.2 | 0.01em | 700, itálico na virada | ALTA |
+| `text-cta` (Montserrat) | `clamp(0.9375rem, 1.2vw, 1.125rem)` · 15 → 18px | 1.2 | -0.025em | 300 | ALTA |
+| `text-caption` (Inter) | 14px | 1.4 | — | 400 | normal |
+
+- `headline-compact` é a variação para slides densos (comparativo, entregáveis, condição, fechamento).
+- Headline em 2 cores: 1ª linha `ink`, 2ª linha `blue-500` (azure, padrão — mesmo azul de destaque da landing). O royal `blue-600` continua disponível (`tone="royal"`).
+- Se o texto não couber, troca a quebra de linha ou o tamanho. **Nunca** esticar ou distorcer letras.
+- Um único `h1` (capa). Títulos de slide são `h2`; títulos de card são `h3`.
+
+---|---|---|---|---|---|
 | `text-display-xl` | `clamp(2.75rem, min(8.5vw, 13svh), 7.5rem)` · 44 → 120px | 0.92 | -0.045em | 700 | ALTA |
 | `text-headline` | `clamp(2rem, min(5vw, 8svh), 4.5rem)` · 32 → 72px | 1.0 | -0.04em | 600 | ALTA |
 | `text-headline-compact` | `clamp(1.75rem, min(3.4vw, 5.6svh), 3.25rem)` · 28 → 52px | 1.0 | -0.04em | 600 | ALTA |

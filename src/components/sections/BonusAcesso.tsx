@@ -18,7 +18,7 @@ export function BonusAcesso() {
       <div className="mt-8 flex flex-col items-center gap-5 md:mt-12 md:flex-row md:justify-center md:gap-8">
         <Reveal order={4} className="flex shrink-0 items-baseline gap-3">
           <CountUp value={number} start={inView} className="font-display text-display-xl text-blue-500" />
-          <span className="font-display text-subhead font-semibold uppercase">{unit}</span>
+          <span className="font-display text-subhead uppercase">{unit}</span>
         </Reveal>
         <Reveal order={5} className="w-full max-w-[12rem] md:w-40">
           <GlowDivider variant="left" />

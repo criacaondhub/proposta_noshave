@@ -40,7 +40,7 @@ export function Fechamento() {
               <div className="flex items-stretch overflow-hidden rounded-md border border-stroke-blue bg-surface-100">
                 <p className="nse-body flex-1 self-center px-4 py-3 md:px-5 md:py-4">{date.text}</p>
                 <p className="flex w-20 shrink-0 flex-col items-center justify-center bg-linear-to-br from-blue-600 to-blue-950 py-3 font-display md:w-24">
-                  <span className="text-headline-compact font-bold">{date.day}</span>
+                  <span className="text-headline-compact">{date.day}</span>
                   <span className="text-eyebrow font-bold uppercase">{date.month}</span>
                 </p>
               </div>

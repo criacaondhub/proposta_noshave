@@ -28,7 +28,7 @@ export function ResultadoInvisivel() {
                   <span className="font-display text-caption font-bold tabular-nums text-blue-400">{pad2(i + 1)}</span>
                   <span aria-hidden className="h-px w-10 bg-linear-to-r from-glow-300 to-transparent" />
                 </div>
-                <p className="font-display text-body text-balance">{card.text}</p>
+                <p className="nse-body text-balance">{card.text}</p>
               </div>
             </Card>
           </Reveal>

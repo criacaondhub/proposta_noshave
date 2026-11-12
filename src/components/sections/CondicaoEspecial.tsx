@@ -30,7 +30,7 @@ export function CondicaoEspecial() {
                 </p>
               )}
               <h3 className="text-eyebrow font-bold text-blue-400 uppercase">{option.label}</h3>
-              <p className="font-display text-headline font-bold whitespace-nowrap">
+              <p className="font-display text-headline whitespace-nowrap">
                 <span className="text-subhead">R$ </span>
                 <CountUp value={option.value} start={inView && revealed >= i + 1} />
               </p>
