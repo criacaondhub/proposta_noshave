@@ -52,8 +52,8 @@ export const HERO = {
 export const FRONTEIRA = {
   id: 'nova-fronteira',
   label: 'A nova fronteira',
-  eyebrow: 'A nova fronteira do _transplante capilar_',
-  title: ['O mercado não precisa de mais um realizador', 'Implora por especialistas de alto padrão'],
+  title: ['A nova fronteira', 'do transplante capilar'],
+  subhead: 'O mercado não precisa de mais um realizador de transplantes. Ele implora por **especialistas de alto padrão**.',
   muted: {
     title: 'O caminho tradicional',
     items: [

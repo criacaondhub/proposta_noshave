@@ -113,7 +113,7 @@ export function SectionHeading({
               <RichText text={subhead} strongClassName="text-blue-400" />
             </p>
           ) : (
-            <p className="nse-sub">
+            <p className="nse-sub max-w-[46ch] text-balance">
               <RichText text={subhead} />
             </p>
           )}

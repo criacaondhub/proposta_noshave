@@ -6,11 +6,11 @@ import { SectionHeading } from '@/components/ui/Typography'
 
 // 02 · T3 — Comparativo: o caminho tradicional × o padrão Ultramar
 export function NovaFronteira() {
-  const { eyebrow, title, muted, featured } = FRONTEIRA
+  const { title, subhead, muted, featured } = FRONTEIRA
 
   return (
     <Slide>
-      <SectionHeading eyebrow={eyebrow} title={title} size="compact" />
+      <SectionHeading title={title} subhead={subhead} />
 
       <div className="mt-8 grid gap-4 md:mt-12 md:grid-cols-2 md:items-center md:gap-gutter">
         {/* no mobile o lado destaque vem primeiro */}
