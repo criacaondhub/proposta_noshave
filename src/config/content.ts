@@ -72,15 +72,15 @@ export const RESULTADO = {
   cards: [
     {
       text: 'Cicatrização discreta em horas.',
-      photo: { src: 'assets/resultado-01.webp', alt: 'Área doadora com cicatrização discreta' },
+      photo: { src: 'assets/resultado-01.webp', alt: 'Mãos enluvadas separando unidades foliculares com pinças sob o microscópio' },
     },
     {
       text: 'Ângulos perfeitos com controle milimétrico.',
-      photo: { src: 'assets/resultado-02.webp', alt: 'Implantação com ângulos controlados' },
+      photo: { src: 'assets/resultado-02.webp', alt: 'Médico desenhando a nova linha frontal na testa do paciente com lápis dermatográfico' },
     },
     {
       text: 'Naturalidade extrema. Retorno imediato à rotina corporativa.',
-      photo: { src: 'assets/resultado-03.webp', alt: 'Resultado natural de transplante sem raspagem' },
+      photo: { src: 'assets/resultado-03.webp', alt: 'Paciente logo após o transplante sem raspagem, com o cabelo comprido preservado e a nova linha frontal' },
     },
   ] satisfies { text: string; photo: Photo }[],
 }

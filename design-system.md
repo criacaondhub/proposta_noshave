@@ -139,13 +139,13 @@ Valores tirados do CSS da proposta FUE Ultramar.
 
 ---
 
-## 4. Imagens (pendentes)
+## 4. Imagens
 
-As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo abaixo e, se não existir, mostra um placeholder com o nome esperado. **Basta salvar o arquivo com este nome em `public/assets/`** — nenhuma mudança de código.
+Todas as fotos já estão em `public/assets/`. Cada `PhotoFrame` tenta carregar o arquivo abaixo e, se ele não existir, mostra um placeholder com o nome esperado. **Para trocar uma foto, basta salvar o novo arquivo com o mesmo nome em `public/assets/`**, sem mudar nada no código.
 
 | Arquivo | Slide | Posição | Proporção sugerida |
 |---|---|---|---|
-| `resultado-01.webp` · `-02` · `-03` | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto) | 4:3 · 1200×900 |
+| `resultado-01.webp` · `-02` · `-03` ✅ | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto). Recorte 4:3 das fotos verticais, centrado no assunto (01 pinças/enxertos · 02 desenho da linha frontal · 03 linha frontal no pós-operatório); cores originais, sem `.graded` (o overlay azul foi descartado pelo cliente nestes cards) | 4:3 · 1200×900 |
 | `depoimento-capa.webp` ✅ | 09 Depoimentos | Capa do player vertical: frame inicial do Shorts (recorte 9:16 da miniatura do YouTube), cores originais | 405×720 |
 | `Slide-10.webp` ✅ | 10 Transição | Metade esquerda, full-bleed (já tratada em azul, sem `.graded`); mobile no topo com máscara | 1080×1350 |
 | `Slide-17.webp` ✅ | 17 Fechamento | Metade esquerda na proporção original (já tratada em azul, sem `.graded` e sem fade inferior); mobile no topo com máscara | 1080×1350 |
@@ -155,7 +155,7 @@ As fotos ainda não foram enviadas. Cada `PhotoFrame` tenta carregar o arquivo a
 - Sem container retangular aparente e sem `border-radius` nas fotos de composição.
 - `.graded`: `grayscale(1) contrast(1.15) brightness(.9)` + camada `blue-600 → blue-950` em `mix-blend-mode: color`. O ideal é a foto já vir tratada.
 - Fade para `bg-000` na base (vinheta radial) e, nas fotos laterais, no lado que encosta no texto.
-- Fotos dos cards (slide 03) não levam fade.
+- Fotos dos cards (slide 03) não levam fade nem grade azul: ficam nas cores originais.
 
 **Vídeo (slide 09):** `CONFIG.VIDEO_URL` = https://www.youtube.com/shorts/T3MbFFraUoI — vídeo vertical (9:16) à esquerda e título em 3 linhas à direita (no mobile, título em cima). Embed youtube-nocookie com autoplay ao clicar. Aceita também `.mp4` em `public/assets/`, vídeos horizontais (sem `vertical`) e Vimeo não listado.
 

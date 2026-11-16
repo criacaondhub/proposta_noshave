@@ -6,7 +6,7 @@ import { Reveal } from '@/components/ui/Reveal'
 import { Slide } from '@/components/ui/Slide'
 import { SectionHeading } from '@/components/ui/Typography'
 
-// 03 · T4 — Grade de 3 cards: foto 4:3 emoldurada + legenda numerada (no mobile: foto à esquerda)
+// 03 · T4 — Grade de 3 cards: foto 4:3 emoldurada (cores originais, sem grade azul) + legenda numerada (no mobile: foto à esquerda)
 export function ResultadoInvisivel() {
   const { eyebrow, title, cards } = RESULTADO
 
@@ -20,6 +20,7 @@ export function ResultadoInvisivel() {
             <Card className="flex w-full items-center gap-4 p-2 md:flex-col md:items-stretch md:gap-0 md:p-2.5">
               <PhotoFrame
                 photo={card.photo}
+                graded={false}
                 fade={false}
                 className="aspect-[4/3] w-[42%] shrink-0 rounded-sm ring-1 ring-ink/10 md:max-h-[30svh] md:w-full"
               />
