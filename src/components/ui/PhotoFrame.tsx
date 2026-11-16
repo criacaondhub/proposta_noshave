@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TbPhoto } from 'react-icons/tb'
 import { SITE, type Photo } from '@/config/content'
-import { cn } from '@/lib/utils'
+import { assetUrl, cn } from '@/lib/utils'
 
 /* Fades extras para o lado que encosta no texto (só no desktop; no mobile a foto fica no topo) */
 const EDGE_FADES = {
@@ -45,7 +45,7 @@ export function PhotoFrame({
         </div>
       ) : (
         <img
-          src={photo.src}
+          src={assetUrl(photo.src)}
           alt={photo.alt}
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"

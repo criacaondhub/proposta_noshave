@@ -143,6 +143,8 @@ Valores tirados do CSS da proposta FUE Ultramar.
 
 Todas as fotos já estão em `public/assets/`. Cada `PhotoFrame` tenta carregar o arquivo abaixo e, se ele não existir, mostra um placeholder com o nome esperado. **Para trocar uma foto, basta salvar o novo arquivo com o mesmo nome em `public/assets/`**, sem mudar nada no código.
 
+O site é publicado em `https://experience.rafaelultramar.com.br/proposta` (`base: '/proposta/'` no `vite.config.ts`). Em `content.ts` os caminhos ficam sem barra inicial (`assets/foto.webp`); o `PhotoFrame` e o `VideoPlayer` resolvem com `assetUrl()`, que prefixa a base. No `index.html`, arquivos de `public/` usam caminho absoluto (`/favicon.svg`), e o Vite acrescenta a base no build.
+
 | Arquivo | Slide | Posição | Proporção sugerida |
 |---|---|---|---|
 | `resultado-01.webp` · `-02` · `-03` ✅ | 03 Resultado invisível | Topo de cada card (mobile: à esquerda do texto). Recorte 4:3 das fotos verticais, centrado no assunto (01 pinças/enxertos · 02 desenho da linha frontal · 03 linha frontal no pós-operatório); cores originais, sem `.graded` (o overlay azul foi descartado pelo cliente nestes cards) | 4:3 · 1200×900 |

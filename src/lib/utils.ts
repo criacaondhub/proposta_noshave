@@ -26,6 +26,15 @@ export const formatNumber = (value: number) => numberFormat.format(value)
 
 export const formatCurrency = (value: number) => `R$ ${formatNumber(value)}`
 
+/**
+ * Resolve um caminho de public/ (ex.: 'assets/foto.webp') contra a base do site (/proposta/).
+ * Sem isso, um caminho relativo quebra quando a página é aberta em /proposta sem a barra final.
+ */
+export function assetUrl(src: string) {
+  if (/^([a-z]+:|\/)/i.test(src)) return src
+  return `${import.meta.env.BASE_URL}${src}`
+}
+
 /** Converte um link do YouTube ou Vimeo no endereço de embed; devolve null para arquivos de vídeo. */
 export function toEmbedUrl(url: string) {
   const youtube = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/)

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TbPlayerPlayFilled } from 'react-icons/tb'
 import { isPending, type Photo } from '@/config/content'
-import { cn, toEmbedUrl } from '@/lib/utils'
+import { assetUrl, cn, toEmbedUrl } from '@/lib/utils'
 import { PhotoFrame } from './PhotoFrame'
 
 export interface Video {
@@ -40,7 +40,7 @@ export function VideoPlayer({ video, playLabel, pendingLabel }: VideoPlayerProps
             className="absolute inset-0 h-full w-full"
           />
         ) : (
-          <video src={video.src} title={video.title} controls autoPlay playsInline className="absolute inset-0 h-full w-full" />
+          <video src={assetUrl(video.src)} title={video.title} controls autoPlay playsInline className="absolute inset-0 h-full w-full" />
         )
       ) : (
         <>
