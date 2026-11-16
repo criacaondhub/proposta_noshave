@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  proposta-noshave:
+    image: proposta-noshave:latest
+    build: .
+    networks:
+      - UltramarNet
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - traefik.enable=true
+        # Só /proposta e /proposta/...: o resto de experience.rafaelultramar.com.br continua na landing.
+        # O caminho chega inteiro ao container (sem strip de prefixo).
+        - traefik.http.routers.proposta-noshave.rule=Host(`experience.rafaelultramar.com.br`) && (Path(`/proposta`) || PathPrefix(`/proposta/`))
+        # Acima da landing, que responde pelo domínio inteiro
+        - traefik.http.routers.proposta-noshave.priority=1000
+        - traefik.http.routers.proposta-noshave.entrypoints=websecure
+        - traefik.http.routers.proposta-noshave.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.proposta-noshave.service=proposta-noshave
+        - traefik.http.services.proposta-noshave.loadbalancer.server.port=80
+        - traefik.http.services.proposta-noshave.loadbalancer.passHostHeader=true
+
+networks:
+  UltramarNet:
+    name: UltramarNet
+    external: true
